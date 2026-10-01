@@ -1474,3 +1474,318 @@ ul { list-style: none; }
   #particles { display: none; }
   .mesh { animation: none; }
 }
+
+/* ==========================================================================
+   ADDITIONS — Language switcher, filter tabs, carousel, radar, counters
+   ========================================================================== */
+
+/* ============ LANGUAGE SWITCHER ============ */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+}
+
+.lang-btn {
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-dim);
+  border-radius: 100px;
+  transition: all var(--t);
+  cursor: pointer;
+}
+
+.lang-btn:hover {
+  color: var(--text);
+  background: var(--surface-hover);
+}
+
+.lang-btn.active {
+  color: white;
+  background: var(--gradient-1);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+}
+
+@media (max-width: 900px) {
+  .lang-switch {
+    display: none;
+  }
+  /* Optional: show inside mobile menu */
+}
+
+/* ============ FILTER TABS ============ */
+.projects-filter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 48px;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  transition: all var(--t);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.filter-btn:hover {
+  color: var(--text);
+  background: var(--surface-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  color: white;
+  background: var(--gradient-1);
+  border-color: transparent;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35);
+}
+
+.filter-btn.active:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.5);
+}
+
+.filter-empty {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 15px;
+  padding: 40px 0;
+  font-style: italic;
+}
+
+/* ============ TESTIMONIAL CAROUSEL ============ */
+.carousel {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 60px;
+  outline: none;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  padding: 0 4px;
+}
+
+.carousel-slide .testimonial-card {
+  height: 100%;
+  margin: 0;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text-muted);
+  font-size: 16px;
+  cursor: pointer;
+  transition: all var(--t);
+  z-index: 3;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-sm);
+}
+
+.carousel-arrow:hover {
+  background: var(--gradient-1);
+  color: white;
+  border-color: transparent;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+}
+
+.carousel-prev { left: 0; }
+.carousel-next { right: 0; }
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border);
+  border: none;
+  cursor: pointer;
+  transition: all var(--t);
+  padding: 0;
+}
+
+.carousel-dot:hover {
+  background: var(--border-hover);
+  transform: scale(1.2);
+}
+
+.carousel-dot.active {
+  width: 28px;
+  border-radius: 5px;
+  background: var(--gradient-1);
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.5);
+}
+
+/* ============ RADAR CHART PANEL ============ */
+.radar-panel {
+  margin-top: 40px;
+  padding: 32px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(10px);
+  transition: all var(--t);
+}
+
+.radar-panel:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-lg);
+}
+
+.radar-panel h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.radar-panel h3::before {
+  content: '';
+  width: 4px;
+  height: 20px;
+  background: var(--gradient-2);
+  border-radius: 2px;
+}
+
+.radar-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+}
+
+/* ============ STAT COUNTERS — Reset base ============ */
+.stat-value {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* ============ RESPONSIVE ============ */
+
+@media (max-width: 900px) {
+  .carousel {
+    padding: 0 48px;
+  }
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+  .carousel-prev { left: -8px; }
+  .carousel-next { right: -8px; }
+}
+
+@media (max-width: 768px) {
+  .projects-filter {
+    gap: 6px;
+    margin-bottom: 32px;
+  }
+  .filter-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .carousel {
+    padding: 0 8px;
+  }
+  .carousel-arrow {
+    position: static;
+    transform: none;
+    margin: 24px auto 0;
+  }
+  .carousel-prev,
+  .carousel-next {
+    display: inline-grid;
+    width: 44px;
+    height: 44px;
+  }
+  .carousel-prev { margin-right: 12px; }
+  .carousel-next { margin-left: 12px; }
+  .carousel > .carousel-arrow + .carousel-viewport + .carousel-arrow {
+    display: inline-grid;
+  }
+
+  /* Stack arrows below on mobile */
+  #testimonialCarousel {
+    display: flex;
+    flex-direction: column;
+  }
+  #testimonialCarousel .carousel-viewport { order: 1; }
+  #testimonialCarousel .carousel-arrow { display: none; }
+  #testimonialCarousel .carousel-dots { order: 3; }
+
+  /* Mobile arrows row */
+  #testimonialCarousel::after {
+    content: '';
+  }
+
+  .radar-panel {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lang-switch {
+    padding: 2px;
+  }
+  .lang-btn {
+    padding: 5px 8px;
+    font-size: 10px;
+  }
+
+  .radar-wrap {
+    max-width: 100%;
+  }
+}
+
+/* ============ MOBILE NAV (language switch inside) ============ */
+@media (max-width: 900px) {
+  /* Add lang switch into mobile menu via JS if desired */
+}

@@ -1,16 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Siphumze Labiti — Software Engineer, Azure Developer, Agentic AI Engineer based in Pretoria, South Africa">
+<meta name="theme-color" content="#0a0a0f">
 <title>Siphumze Labiti | Software Engineer & AI Developer</title>
 
+<!-- Favicon + PWA icons -->
+<link rel="icon" href="icons/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="icons/icon-512.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Siphumze Labiti">
+
+<!-- Fonts & Icons -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="css/modern.css">
+
+<!-- Chart.js (for radar chart) -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
 </head>
 <body>
 
@@ -36,19 +53,29 @@
     </a>
 
     <ul class="nav-menu" id="navMenu">
-      <li><a href="#about" class="nav-link">About</a></li>
-      <li><a href="#experience" class="nav-link">Experience</a></li>
-      <li><a href="#projects" class="nav-link">Projects</a></li>
-      <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-      <li><a href="#education" class="nav-link">Education</a></li>
-      <li><a href="#contact" class="nav-link nav-cta">Get in Touch</a></li>
+      <li><a href="#about" class="nav-link" data-i18n="nav.about">About</a></li>
+      <li><a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a></li>
+      <li><a href="#projects" class="nav-link" data-i18n="nav.projects">Projects</a></li>
+      <li><a href="#testimonials" class="nav-link" data-i18n="nav.testimonials">Testimonials</a></li>
+      <li><a href="#education" class="nav-link" data-i18n="nav.education">Education</a></li>
+      <li><a href="#contact" class="nav-link nav-cta" data-i18n="nav.contact">Get in Touch</a></li>
     </ul>
 
     <div class="nav-actions">
+      <!-- Language switcher -->
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn" data-lang-btn="en" aria-label="English">EN</button>
+        <button class="lang-btn" data-lang-btn="af" aria-label="Afrikaans">AF</button>
+        <button class="lang-btn" data-lang-btn="xh" aria-label="isiXhosa">XH</button>
+      </div>
+
+      <!-- Theme toggle -->
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark mode">
         <i class="fa-solid fa-moon icon-moon"></i>
         <i class="fa-solid fa-sun icon-sun"></i>
       </button>
+
+      <!-- Mobile nav -->
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
@@ -62,41 +89,41 @@
     <div class="hero-content">
       <div class="hero-badge reveal">
         <span class="badge-dot"></span>
-        Available for opportunities
+        <span data-i18n="hero.badge">Available for opportunities</span>
       </div>
       <h1 class="hero-title reveal">
-        Hi, I'm <span class="gradient-text">Siphumze Labiti</span>
+        <span data-i18n="hero.greeting">Hi, I'm</span> <span class="gradient-text">Siphumze Labiti</span>
       </h1>
       <h2 class="hero-subtitle reveal">
         <span class="typewriter" id="typewriter"></span>
         <span class="cursor">|</span>
       </h2>
-      <p class="hero-description reveal">
+      <p class="hero-description reveal" data-i18n-html="hero.description">
         Results-driven Full Stack Developer with <strong>4+ years</strong> of professional experience architecting production-grade web, mobile, and AI-powered systems. Specialised in C# (.NET Core), Python (FastAPI, Django), Angular, React, Java Spring Boot, and Azure cloud-native solutions.
       </p>
       <div class="hero-actions reveal">
         <a href="#projects" class="btn btn-primary">
-          View My Work <i class="fa-solid fa-arrow-right"></i>
+          <span data-i18n="hero.viewWork">View My Work</span> <i class="fa-solid fa-arrow-right"></i>
         </a>
         <a href="Siphumze-Labiti-CV.pdf" download class="btn btn-cv">
-          <i class="fa-solid fa-download"></i> Download CV
+          <i class="fa-solid fa-download"></i> <span data-i18n="hero.downloadCV">Download CV</span>
         </a>
         <a href="#contact" class="btn btn-ghost">
-          <i class="fa-solid fa-envelope"></i> Contact
+          <i class="fa-solid fa-envelope"></i> <span data-i18n="hero.contact">Contact</span>
         </a>
       </div>
       <div class="hero-stats reveal">
         <div class="stat">
-          <span class="stat-value">4+</span>
-          <span class="stat-label">Years Experience</span>
+          <span class="stat-value" data-counter="4" data-suffix="+">0+</span>
+          <span class="stat-label" data-i18n="hero.yearsExp">Years Experience</span>
         </div>
         <div class="stat">
-          <span class="stat-value">6</span>
-          <span class="stat-label">Major Projects</span>
+          <span class="stat-value" data-counter="6">0</span>
+          <span class="stat-label" data-i18n="hero.majorProjects">Major Projects</span>
         </div>
         <div class="stat">
-          <span class="stat-value">4</span>
-          <span class="stat-label">Certifications</span>
+          <span class="stat-value" data-counter="4">0</span>
+          <span class="stat-label" data-i18n="hero.certifications">Certifications</span>
         </div>
       </div>
     </div>
@@ -136,62 +163,72 @@
 <section class="section" id="about">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-tag">01 — About</span>
-      <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+      <span class="section-tag" data-i18n="about.tag">01 — About</span>
+      <h2 class="section-title">
+        <span data-i18n="about.title1">About</span> <span class="gradient-text" data-i18n="about.title2">Me</span>
+      </h2>
     </div>
 
     <div class="about-grid">
       <div class="about-content reveal">
-        <p>
+        <p data-i18n-html="about.p1">
           I'm a Software Engineer currently working at <strong>ARMSCOR</strong> (South African defence manufacturer), where I build enterprise-grade systems for IP management, security clearance tracking, and event-driven integrations.
         </p>
-        <p>
+        <p data-i18n-html="about.p2">
           I architected and delivered an <strong>IP Management System</strong> integrated with Azure Cognitive Services (70% reduction in manual data entry), a <strong>security clearance platform</strong> achieving 95% fewer verification errors, and an <strong>event-driven inventory sync platform</strong> handling 1M+ daily webhooks with 99.5% delivery success.
         </p>
-        <p>
+        <p data-i18n-html="about.p3">
           Beyond work, I've built a <strong>production-ready 9-agent AI system</strong> with FastAPI and React, plus a biometric time-tracking system using Facenet-PyTorch face recognition. Skilled in <strong>Java Spring Boot</strong>, <strong>Databricks</strong>, and cloud-native development.
         </p>
 
         <div class="certifications">
-          <h3>Certifications</h3>
+          <h3 data-i18n="about.certsTitle">Certifications</h3>
           <div class="cert-list">
             <div class="cert-item">
               <i class="fa-brands fa-microsoft"></i>
               <div>
                 <strong>Microsoft Certified: Azure Developer Associate</strong>
-                <span>2025 · Certified</span>
+                <span>2025 · <span data-i18n="common.certified">Certified</span></span>
               </div>
             </div>
             <div class="cert-item">
               <i class="fa-solid fa-database"></i>
               <div>
                 <strong>Databricks Academy Accreditation — Platform Administrator</strong>
-                <span>2026 · Certified</span>
+                <span>2026 · <span data-i18n="common.certified">Certified</span></span>
               </div>
             </div>
             <div class="cert-item">
               <i class="fa-solid fa-cubes"></i>
               <div>
                 <strong>Databricks Academy Accreditation — Fundamentals</strong>
-                <span>Certified</span>
+                <span data-i18n="common.certified">Certified</span>
               </div>
             </div>
             <div class="cert-item">
               <i class="fa-solid fa-network-wired"></i>
               <div>
                 <strong>Cisco CCNA + IT Essentials</strong>
-                <span>Certified</span>
+                <span data-i18n="common.certified">Certified</span>
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- Radar Chart -->
+        <div class="radar-panel">
+          <h3 data-i18n="about.radarTitle">Proficiency Snapshot</h3>
+          <div class="radar-wrap">
+            <canvas id="skillsRadar"></canvas>
           </div>
         </div>
       </div>
 
       <div class="skills-panel reveal">
-        <h3>Tech Stack</h3>
+        <h3 data-i18n="about.techStack">Tech Stack</h3>
         <div class="skills-groups">
           <div class="skill-group">
-            <h4>Languages</h4>
+            <h4 data-i18n="skill.languages">Languages</h4>
             <div class="skill-chips">
               <span class="chip">C#</span><span class="chip">Python</span>
               <span class="chip">TypeScript</span><span class="chip">JavaScript</span>
@@ -201,7 +238,7 @@
             </div>
           </div>
           <div class="skill-group">
-            <h4>Frontend</h4>
+            <h4 data-i18n="skill.frontend">Frontend</h4>
             <div class="skill-chips">
               <span class="chip">Angular</span><span class="chip">React</span>
               <span class="chip">React Native</span><span class="chip">TypeScript</span>
@@ -211,7 +248,7 @@
             </div>
           </div>
           <div class="skill-group">
-            <h4>Backend Frameworks</h4>
+            <h4 data-i18n="skill.backend">Backend Frameworks</h4>
             <div class="skill-chips">
               <span class="chip">ASP.NET Core</span><span class="chip">ASP.NET MVC</span>
               <span class="chip">Web API</span><span class="chip">FastAPI</span>
@@ -221,7 +258,7 @@
             </div>
           </div>
           <div class="skill-group">
-            <h4>Cloud &amp; DevOps</h4>
+            <h4 data-i18n="skill.cloud">Cloud &amp; DevOps</h4>
             <div class="skill-chips">
               <span class="chip">Microsoft Azure</span><span class="chip">App Services</span>
               <span class="chip">AKS</span><span class="chip">Azure Functions</span>
@@ -231,7 +268,7 @@
             </div>
           </div>
           <div class="skill-group">
-            <h4>Databases &amp; Data Platforms</h4>
+            <h4 data-i18n="skill.databases">Databases &amp; Data Platforms</h4>
             <div class="skill-chips">
               <span class="chip">SQL Server</span><span class="chip">MySQL</span>
               <span class="chip">PostgreSQL</span><span class="chip">MongoDB</span>
@@ -239,7 +276,7 @@
             </div>
           </div>
           <div class="skill-group">
-            <h4>Messaging &amp; Integration</h4>
+            <h4 data-i18n="skill.messaging">Messaging &amp; Integration</h4>
             <div class="skill-chips">
               <span class="chip">RabbitMQ</span><span class="chip">SignalR</span>
               <span class="chip">Webhooks</span><span class="chip">Change Data Capture</span>
@@ -247,14 +284,14 @@
             </div>
           </div>
           <div class="skill-group">
-            <h4>AI &amp; Machine Learning</h4>
+            <h4 data-i18n="skill.ai">AI &amp; Machine Learning</h4>
             <div class="skill-chips">
               <span class="chip">Azure Cognitive Services</span><span class="chip">OpenAI APIs</span>
               <span class="chip">LLM Integration</span><span class="chip">Facenet-PyTorch</span>
             </div>
           </div>
           <div class="skill-group">
-            <h4>Testing</h4>
+            <h4 data-i18n="skill.testing">Testing</h4>
             <div class="skill-chips">
               <span class="chip">Playwright</span><span class="chip">xUnit/NUnit</span>
               <span class="chip">PyTest</span><span class="chip">Integration Testing</span>
@@ -262,7 +299,7 @@
             </div>
           </div>
           <div class="skill-group">
-            <h4>Architecture &amp; Practices</h4>
+            <h4 data-i18n="skill.architecture">Architecture &amp; Practices</h4>
             <div class="skill-chips">
               <span class="chip">Microservices</span><span class="chip">Event-Driven</span>
               <span class="chip">Repository Pattern</span><span class="chip">Factory Pattern</span>
@@ -280,8 +317,10 @@
 <section class="section section-alt" id="experience">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-tag">02 — Experience</span>
-      <h2 class="section-title">Work <span class="gradient-text">Experience</span></h2>
+      <span class="section-tag" data-i18n="exp.tag">02 — Experience</span>
+      <h2 class="section-title">
+        <span data-i18n="exp.title1">Work</span> <span class="gradient-text" data-i18n="exp.title2">Experience</span>
+      </h2>
     </div>
 
     <div class="timeline">
@@ -290,17 +329,17 @@
         <div class="timeline-content">
           <div class="timeline-header">
             <div>
-              <h3>Software Engineer</h3>
+              <h3 data-i18n="exp.role1">Software Engineer</h3>
               <p class="timeline-company">ARMSCOR — South African Defence Manufacturer</p>
             </div>
             <span class="timeline-date">March 2022 — Present</span>
           </div>
           <ul class="timeline-list">
-            <li><i class="fa-solid fa-check"></i><span>Engineered full-stack <strong>IP Management System</strong> (C# .NET, Angular, SQL Server) with Azure Cognitive Services — <strong>70% less manual data entry</strong>; deployed on AKS with CI/CD via Azure DevOps.</span></li>
-            <li><i class="fa-solid fa-check"></i><span>Architected <strong>Security Clearance Tracking Solution</strong> — <strong>80% less manual verification, 95% fewer errors</strong>. Playwright E2E: <strong>90% coverage, regression 4h → 15min</strong>.</span></li>
-            <li><i class="fa-solid fa-check"></i><span>Engineered <strong>event-driven Inventory Sync Platform</strong> (RabbitMQ, Redis, SignalR) — <strong>1M+ daily webhooks, 99.5% success</strong> for 50+ B2B resellers.</span></li>
-            <li><i class="fa-solid fa-check"></i><span>Designed and deployed <strong>production-ready 9-agent AI system</strong> (FastAPI + React) with autonomous agents.</span></li>
-            <li><i class="fa-solid fa-check"></i><span>Provided second-line support, client requirement-gathering, and <strong>mentored junior developers</strong>.</span></li>
+            <li><i class="fa-solid fa-check"></i><span data-i18n-html="exp.r1b1">Engineered full-stack <strong>IP Management System</strong> (C# .NET, Angular, SQL Server) with Azure Cognitive Services — <strong>70% less manual data entry</strong>; deployed on AKS with CI/CD via Azure DevOps.</span></li>
+            <li><i class="fa-solid fa-check"></i><span data-i18n-html="exp.r1b2">Architected <strong>Security Clearance Tracking Solution</strong> — <strong>80% less manual verification, 95% fewer errors</strong>. Playwright E2E: <strong>90% coverage, regression 4h → 15min</strong>.</span></li>
+            <li><i class="fa-solid fa-check"></i><span data-i18n-html="exp.r1b3">Engineered <strong>event-driven Inventory Sync Platform</strong> (RabbitMQ, Redis, SignalR) — <strong>1M+ daily webhooks, 99.5% success</strong> for 50+ B2B resellers.</span></li>
+            <li><i class="fa-solid fa-check"></i><span data-i18n-html="exp.r1b4">Designed and deployed <strong>production-ready 9-agent AI system</strong> (FastAPI + React) with autonomous agents.</span></li>
+            <li><i class="fa-solid fa-check"></i><span data-i18n-html="exp.r1b5">Provided second-line support, client requirement-gathering, and <strong>mentored junior developers</strong>.</span></li>
           </ul>
         </div>
       </div>
@@ -310,15 +349,15 @@
         <div class="timeline-content">
           <div class="timeline-header">
             <div>
-              <h3>Software Development Intern</h3>
+              <h3 data-i18n="exp.role2">Software Development Intern</h3>
               <p class="timeline-company">ARMSCOR</p>
             </div>
             <span class="timeline-date">March 2021 — March 2022</span>
           </div>
           <ul class="timeline-list">
-            <li><i class="fa-solid fa-check"></i><span>Intensive full-stack web development internship — C#, .NET Framework, SQL Server, JavaScript, HTML/CSS, Git.</span></li>
-            <li><i class="fa-solid fa-check"></i><span>Built internal support-ticket tracking tool (ASP.NET MVC + Bootstrap) <strong>adopted by the team</strong>.</span></li>
-            <li><i class="fa-solid fa-check"></i><span>Participated in Agile/Scrum ceremonies: stand-ups, code reviews, sprint planning.</span></li>
+            <li><i class="fa-solid fa-check"></i><span data-i18n-html="exp.r2b1">Intensive full-stack web development internship — C#, .NET Framework, SQL Server, JavaScript, HTML/CSS, Git.</span></li>
+            <li><i class="fa-solid fa-check"></i><span data-i18n-html="exp.r2b2">Built internal support-ticket tracking tool (ASP.NET MVC + Bootstrap) <strong>adopted by the team</strong>.</span></li>
+            <li><i class="fa-solid fa-check"></i><span data-i18n-html="exp.r2b3">Participated in Agile/Scrum ceremonies: stand-ups, code reviews, sprint planning.</span></li>
           </ul>
         </div>
       </div>
@@ -330,23 +369,30 @@
 <section class="section" id="projects">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-tag">03 — Portfolio</span>
-      <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
-      <p class="section-description">Production-grade systems across defence, AI, logistics, and biometrics.</p>
+      <span class="section-tag" data-i18n="proj.tag">03 — Portfolio</span>
+      <h2 class="section-title">
+        <span data-i18n="proj.title1">Featured</span> <span class="gradient-text" data-i18n="proj.title2">Projects</span>
+      </h2>
+      <p class="section-description" data-i18n="proj.description">Production-grade systems across defence, AI, logistics, and biometrics.</p>
     </div>
 
-    <div class="projects-grid">
-      <!-- IP Management System -->
-      <article class="project-card reveal">
+    <!-- Filter tabs -->
+    <div class="projects-filter reveal" role="tablist">
+      <button class="filter-btn active" data-filter="all" data-i18n="proj.filter.all">All</button>
+      <button class="filter-btn" data-filter="dotnet" data-i18n="proj.filter.dotnet">.NET</button>
+      <button class="filter-btn" data-filter="ai" data-i18n="proj.filter.ai">AI</button>
+      <button class="filter-btn" data-filter="fullstack" data-i18n="proj.filter.fullstack">Full Stack</button>
+      <button class="filter-btn" data-filter="cloud" data-i18n="proj.filter.cloud">Cloud</button>
+    </div>
+
+    <div class="projects-grid" id="projectsGrid">
+      <!-- IP Management -->
+      <article class="project-card reveal" data-categories="dotnet fullstack cloud">
         <div class="project-card-header">
           <div class="project-icon"><i class="fa-solid fa-fingerprint"></i></div>
           <div class="project-links">
-            <a href="https://github.com/labiti/ip-management-system" target="_blank" rel="noopener" aria-label="View on GitHub" title="View on GitHub">
-              <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="#" target="_blank" rel="noopener" aria-label="Live demo" title="Live demo">
-              <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </a>
+            <a href="https://github.com/labiti/ip-management-system" target="_blank" rel="noopener" aria-label="View on GitHub" title="View on GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" target="_blank" rel="noopener" aria-label="Live demo" title="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
           </div>
         </div>
         <h3>IP Management System</h3>
@@ -358,7 +404,7 @@
       </article>
 
       <!-- Vetting System -->
-      <article class="project-card reveal">
+      <article class="project-card reveal" data-categories="dotnet fullstack">
         <div class="project-card-header">
           <div class="project-icon"><i class="fa-solid fa-shield-halved"></i></div>
           <div class="project-links">
@@ -375,7 +421,7 @@
       </article>
 
       <!-- Inventory Sync Hub -->
-      <article class="project-card reveal">
+      <article class="project-card reveal" data-categories="dotnet fullstack cloud">
         <div class="project-card-header">
           <div class="project-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
           <div class="project-links">
@@ -392,7 +438,7 @@
       </article>
 
       <!-- Agent Hub -->
-      <article class="project-card reveal">
+      <article class="project-card reveal" data-categories="ai fullstack">
         <div class="project-card-header">
           <div class="project-icon"><i class="fa-solid fa-robot"></i></div>
           <div class="project-links">
@@ -409,7 +455,7 @@
       </article>
 
       <!-- BioClock -->
-      <article class="project-card reveal">
+      <article class="project-card reveal" data-categories="ai fullstack cloud">
         <div class="project-card-header">
           <div class="project-icon"><i class="fa-solid fa-user-check"></i></div>
           <div class="project-links">
@@ -426,7 +472,7 @@
       </article>
 
       <!-- Fleet Management -->
-      <article class="project-card reveal">
+      <article class="project-card reveal" data-categories="fullstack">
         <div class="project-card-header">
           <div class="project-icon"><i class="fa-solid fa-car"></i></div>
           <div class="project-links">
@@ -442,74 +488,102 @@
         </div>
       </article>
     </div>
+
+    <p class="filter-empty" id="filterEmpty" hidden data-i18n="proj.noResults">No projects match this filter.</p>
   </div>
 </section>
 
-<!-- Testimonials Section -->
+<!-- Testimonials Section — Carousel -->
 <section class="section section-alt" id="testimonials">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-tag">04 — Testimonials</span>
-      <h2 class="section-title">What People <span class="gradient-text">Say</span></h2>
-      <p class="section-description">Feedback from colleagues, mentors, and collaborators.</p>
+      <span class="section-tag" data-i18n="test.tag">04 — Testimonials</span>
+      <h2 class="section-title">
+        <span data-i18n="test.title1">What People</span> <span class="gradient-text" data-i18n="test.title2">Say</span>
+      </h2>
+      <p class="section-description" data-i18n="test.description">Feedback from colleagues, mentors, and collaborators.</p>
     </div>
 
-    <div class="testimonials-grid">
-      <article class="testimonial-card reveal">
-        <div class="testimonial-quote"><i class="fa-solid fa-quote-left"></i></div>
-        <p class="testimonial-text">
-          "Siphumze consistently delivers beyond expectations. His work on our IP Management System transformed a manual, error-prone process into a fully automated, AI-assisted workflow. He's a rare blend of deep technical skill and strong business understanding."
-        </p>
-        <div class="testimonial-author">
-          <div class="author-avatar">TM</div>
-          <div>
-            <strong>Thabo M.</strong>
-            <span>Senior Engineering Manager, ARMSCOR</span>
-          </div>
-        </div>
-      </article>
+    <div class="carousel reveal" id="testimonialCarousel">
+      <button class="carousel-arrow carousel-prev" id="carouselPrev" aria-label="Previous testimonial">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
 
-      <article class="testimonial-card reveal">
-        <div class="testimonial-quote"><i class="fa-solid fa-quote-left"></i></div>
-        <p class="testimonial-text">
-          "Working alongside Siphumze on the Inventory Sync Hub was a masterclass in event-driven architecture. His CDC + Outbox pattern implementation gave us zero data loss at 1M+ webhooks per day. Exceptional engineer."
-        </p>
-        <div class="testimonial-author">
-          <div class="author-avatar">NM</div>
-          <div>
-            <strong>Naledi M.</strong>
-            <span>Tech Lead, Enterprise Integrations</span>
-          </div>
-        </div>
-      </article>
+      <div class="carousel-viewport">
+        <div class="carousel-track" id="carouselTrack">
 
-      <article class="testimonial-card reveal">
-        <div class="testimonial-quote"><i class="fa-solid fa-quote-left"></i></div>
-        <p class="testimonial-text">
-          "Siphumze mentored me during my internship. His patience, code review rigor, and willingness to explain the 'why' behind each decision accelerated my growth enormously. A natural leader and teacher."
-        </p>
-        <div class="testimonial-author">
-          <div class="author-avatar">JK</div>
-          <div>
-            <strong>Johan K.</strong>
-            <span>Junior Software Developer</span>
+          <div class="carousel-slide">
+            <article class="testimonial-card">
+              <div class="testimonial-quote"><i class="fa-solid fa-quote-left"></i></div>
+              <p class="testimonial-text">
+                "Siphumze consistently delivers beyond expectations. His work on our IP Management System transformed a manual, error-prone process into a fully automated, AI-assisted workflow. He's a rare blend of deep technical skill and strong business understanding."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">TM</div>
+                <div>
+                  <strong>Thabo M.</strong>
+                  <span>Senior Engineering Manager, ARMSCOR</span>
+                </div>
+              </div>
+            </article>
           </div>
-        </div>
-      </article>
 
-      <article class="testimonial-card reveal">
-        <div class="testimonial-quote"><i class="fa-solid fa-quote-left"></i></div>
-        <p class="testimonial-text">
-          "The Agent Hub project blew me away. Nine microservices working as autonomous agents with intelligent routing — this is genuinely cutting-edge work that rivals what I've seen from senior AI engineers at major tech companies."
-        </p>
-        <div class="testimonial-author">
-          <div class="author-avatar">PS</div>
-          <div>
-            <strong>Priya S.</strong>
-            <span>AI Solutions Architect</span>
+          <div class="carousel-slide">
+            <article class="testimonial-card">
+              <div class="testimonial-quote"><i class="fa-solid fa-quote-left"></i></div>
+              <p class="testimonial-text">
+                "Working alongside Siphumze on the Inventory Sync Hub was a masterclass in event-driven architecture. His CDC + Outbox pattern implementation gave us zero data loss at 1M+ webhooks per day. Exceptional engineer."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">NM</div>
+                <div>
+                  <strong>Naledi M.</strong>
+                  <span>Tech Lead, Enterprise Integrations</span>
+                </div>
+              </div>
+            </article>
           </div>
+
+          <div class="carousel-slide">
+            <article class="testimonial-card">
+              <div class="testimonial-quote"><i class="fa-solid fa-quote-left"></i></div>
+              <p class="testimonial-text">
+                "Siphumze mentored me during my internship. His patience, code review rigor, and willingness to explain the 'why' behind each decision accelerated my growth enormously. A natural leader and teacher."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">JK</div>
+                <div>
+                  <strong>Johan K.</strong>
+                  <span>Junior Software Developer</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="carousel-slide">
+            <article class="testimonial-card">
+              <div class="testimonial-quote"><i class="fa-solid fa-quote-left"></i></div>
+              <p class="testimonial-text">
+                "The Agent Hub project blew me away. Nine microservices working as autonomous agents with intelligent routing — this is genuinely cutting-edge work that rivals what I've seen from senior AI engineers at major tech companies."
+              </p>
+              <div class="testimonial-author">
+                <div class="author-avatar">PS</div>
+                <div>
+                  <strong>Priya S.</strong>
+                  <span>AI Solutions Architect</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
         </div>
-      </article>
+      </div>
+
+      <button class="carousel-arrow carousel-next" id="carouselNext" aria-label="Next testimonial">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+
+      <div class="carousel-dots" id="carouselDots"></div>
     </div>
   </div>
 </section>
@@ -518,8 +592,10 @@
 <section class="section" id="education">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-tag">05 — Education</span>
-      <h2 class="section-title">Education &amp; <span class="gradient-text">Credentials</span></h2>
+      <span class="section-tag" data-i18n="edu.tag">05 — Education</span>
+      <h2 class="section-title">
+        <span data-i18n="edu.title1">Education &amp;</span> <span class="gradient-text" data-i18n="edu.title2">Credentials</span>
+      </h2>
     </div>
 
     <div class="edu-grid">
@@ -562,11 +638,9 @@
   <div class="container">
     <div class="quote-content reveal">
       <i class="fa-solid fa-quote-left quote-icon"></i>
-      <blockquote>
-        "Future belongs to those who believe in the beauty of their dreams."
-      </blockquote>
+      <blockquote data-i18n="quote.text">"Future belongs to those who believe in the beauty of their dreams."</blockquote>
       <cite>— Eleanor Roosevelt</cite>
-      <p class="quote-motto">Live · Laugh · Love · Code</p>
+      <p class="quote-motto" data-i18n="quote.motto">Live · Laugh · Love · Code</p>
     </div>
   </div>
 </section>
@@ -575,9 +649,11 @@
 <section class="section" id="contact">
   <div class="container">
     <div class="section-header reveal">
-      <span class="section-tag">06 — Contact</span>
-      <h2 class="section-title">Let's Work <span class="gradient-text">Together</span></h2>
-      <p class="section-description">Have a project in mind or want to discuss opportunities? I'd love to hear from you.</p>
+      <span class="section-tag" data-i18n="contact.tag">06 — Contact</span>
+      <h2 class="section-title">
+        <span data-i18n="contact.title1">Let's Work</span> <span class="gradient-text" data-i18n="contact.title2">Together</span>
+      </h2>
+      <p class="section-description" data-i18n="contact.description">Have a project in mind or want to discuss opportunities? I'd love to hear from you.</p>
     </div>
 
     <div class="contact-grid">
@@ -585,21 +661,21 @@
         <a href="mailto:slabiti@live.com" class="contact-item">
           <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
           <div>
-            <span class="contact-label">Email</span>
+            <span class="contact-label" data-i18n="contact.email">Email</span>
             <span class="contact-value">slabiti@live.com</span>
           </div>
         </a>
         <a href="tel:+27603987539" class="contact-item">
           <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
           <div>
-            <span class="contact-label">Phone</span>
+            <span class="contact-label" data-i18n="contact.phone">Phone</span>
             <span class="contact-value">+27 60 398 7539</span>
           </div>
         </a>
         <div class="contact-item">
           <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
           <div>
-            <span class="contact-label">Location</span>
+            <span class="contact-label" data-i18n="contact.location">Location</span>
             <span class="contact-value">Pretoria, South Africa</span>
           </div>
         </div>
@@ -615,24 +691,24 @@
       <form class="contact-form reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <div class="form-row">
           <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required placeholder="Your full name">
+            <label for="name" data-i18n="form.name">Name</label>
+            <input type="text" id="name" name="name" required data-i18n-placeholder="form.namePh" placeholder="Your full name">
           </div>
           <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required placeholder="you@example.com">
+            <label for="email" data-i18n="form.email">Email</label>
+            <input type="email" id="email" name="email" required data-i18n-placeholder="form.emailPh" placeholder="you@example.com">
           </div>
         </div>
         <div class="form-group">
-          <label for="subject">Subject</label>
-          <input type="text" id="subject" name="subject" required placeholder="What's this about?">
+          <label for="subject" data-i18n="form.subject">Subject</label>
+          <input type="text" id="subject" name="subject" required data-i18n-placeholder="form.subjectPh" placeholder="What's this about?">
         </div>
         <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project or opportunity..."></textarea>
+          <label for="message" data-i18n="form.message">Message</label>
+          <textarea id="message" name="message" rows="5" required data-i18n-placeholder="form.messagePh" placeholder="Tell me about your project or opportunity..."></textarea>
         </div>
         <button type="submit" class="btn btn-primary btn-block">
-          Send Message <i class="fa-solid fa-paper-plane"></i>
+          <span data-i18n="form.send">Send Message</span> <i class="fa-solid fa-paper-plane"></i>
         </button>
       </form>
     </div>
@@ -647,7 +723,7 @@
         <span class="logo-mark">SL</span>
         <div>
           <strong>Siphumze Labiti</strong>
-          <p>Software Engineer · Azure Developer · AI Engineer</p>
+          <p data-i18n="footer.tagline">Software Engineer · Azure Developer · AI Engineer</p>
         </div>
       </div>
       <div class="footer-social">
@@ -658,11 +734,29 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Siphumze Labiti. Built with care in Pretoria, South Africa.</p>
+      <p data-i18n="footer.copyright">© 2026 Siphumze Labiti. Built with care in Pretoria, South Africa.</p>
     </div>
   </div>
 </footer>
 
+<!-- Scripts -->
 <script src="js/modern.js"></script>
+<script src="js/i18n.js"></script>
+
+<!-- Plausible Analytics (privacy-friendly, GDPR compliant)
+     Uncomment the line below after registering your domain at plausible.io -->
+<!--
+<script defer data-domain="labiti.github.io" src="https://plausible.io/js/script.js"></script>
+-->
+
+<!-- Service Worker Registration -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js').catch(err => console.log('SW registration failed:', err));
+    });
+  }
+</script>
+
 </body>
 </html>
