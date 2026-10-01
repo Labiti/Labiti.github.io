@@ -335,6 +335,18 @@ a:hover, a:active, a:focus {
 }
 
 
+#projects {
+  position: relative;
+  background: #f9f9f9;
+}
+#projects h3 {
+  color: #232B2B;
+}
+#projects p {
+  color: #555;
+  font-size: 15px;
+  line-height: 24px;
+}
 
 /*---------------------------------------
     Home section              

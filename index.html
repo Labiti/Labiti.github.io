@@ -1,446 +1,668 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-
 <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta name="description" content="">
-<meta name="keywords" content="">
-<meta name="author" content="Labiti">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Siphumze Labiti — Software Engineer, Azure Developer, Agentic AI Engineer based in Pretoria, South Africa">
+<title>Siphumze Labiti | Software Engineer & AI Developer</title>
 
-<title>Siphumze Labiti</title>
-
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/animate.css">
-<link rel="stylesheet" href="css/font-awesome.min.css">
-<link rel="stylesheet" href="css/templatemo-style.css">
-
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/modern.css">
 </head>
-<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+<body>
 
-
-<!-- PRE LOADER -->
-
-<div class="preloader">
-     <div class="spinner">
-          <span class="spinner-rotate"></span>
-     </div>
+<!-- Animated background -->
+<div class="bg-canvas">
+  <canvas id="particles"></canvas>
+  <div class="mesh mesh-1"></div>
+  <div class="mesh mesh-2"></div>
+  <div class="mesh mesh-3"></div>
 </div>
 
-
-<!-- Navigation Section -->
-
-<div class="navbar navbar-fixed-top custom-navbar" role="navigation">
-     <div class="container">
-
-          <!-- navbar header -->
-          <div class="navbar-header">
-               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-               </button>
-               <a href="#" class="navbar-brand">Siphumze Labiti</a>
-          </div>
-
-          <div class="collapse navbar-collapse">
-               <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#home" class="smoothScroll">Home</a></li>
-                    <li><a href="#about" class="smoothScroll">About Me</a></li>
-                    <li><a href="#experience" class="smoothScroll">Experiences</a></li>
-                    <li><a href="#quotes" class="smoothScroll">Testimonial</a></li>
-                    <li><a href="#contact" class="smoothScroll">Contact</a></li>
-               </ul>
-          </div>
-
-     </div>
+<!-- Preloader -->
+<div class="preloader" id="preloader">
+  <div class="loader-ring"></div>
 </div>
 
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo">
+      <span class="logo-mark">SL</span>
+      <span class="logo-text">Siphumze<span class="accent">.</span></span>
+    </a>
 
-<!-- Home Section -->
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#experience" class="nav-link">Experience</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+      <li><a href="#education" class="nav-link">Education</a></li>
+      <li><a href="#contact" class="nav-link nav-cta">Get in Touch</a></li>
+    </ul>
 
-<section id="home" class="parallax-section">
-     <div class="container">
-          <div class="row">
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark mode">
+        <i class="fa-solid fa-moon icon-moon"></i>
+        <i class="fa-solid fa-sun icon-sun"></i>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
 
-               <div class="col-md-6 col-sm-6">
-                    <div class="home-img"></div>
-               </div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+  <div class="container hero-container">
+    <div class="hero-content">
+      <div class="hero-badge reveal">
+        <span class="badge-dot"></span>
+        Available for opportunities
+      </div>
+      <h1 class="hero-title reveal">
+        Hi, I'm <span class="gradient-text">Siphumze Labiti</span>
+      </h1>
+      <h2 class="hero-subtitle reveal">
+        <span class="typewriter" id="typewriter"></span>
+        <span class="cursor">|</span>
+      </h2>
+      <p class="hero-description reveal">
+        Results-driven Full Stack Developer with <strong>4+ years</strong> of professional experience architecting production-grade web, mobile, and AI-powered systems. Specialised in C# (.NET Core), Python (FastAPI, Django), Angular, React, Java Spring Boot, and Azure cloud-native solutions.
+      </p>
+      <div class="hero-actions reveal">
+        <a href="#projects" class="btn btn-primary">
+          View My Work <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="Siphumze-Labiti-CV.pdf" download class="btn btn-cv">
+          <i class="fa-solid fa-download"></i> Download CV
+        </a>
+        <a href="#contact" class="btn btn-ghost">
+          <i class="fa-solid fa-envelope"></i> Contact
+        </a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="stat">
+          <span class="stat-value">4+</span>
+          <span class="stat-label">Years Experience</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">6</span>
+          <span class="stat-label">Major Projects</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">4</span>
+          <span class="stat-label">Certifications</span>
+        </div>
+      </div>
+    </div>
 
-               <div class="col-md-6 col-sm-6">
-                    <div class="home-thumb">
-                         <div class="section-title">
-                              <h4 class="wow fadeInUp" data-wow-delay="0.3s">welcome to my Portfolio</h4>
-                              <h1 class="wow fadeInUp" data-wow-delay="0.6s">Hello, I am <strong>Siphumze Labiti</strong> currently based in Pretoria, South africa.</h1>
-                              <p class="wow fadeInUp" data-wow-delay="0.9s">I'm really passionate about cultivation, and solving problems. I love the Information Technology and making a meaningful contribution its making to the world. Curiosity is definitely a prerequisite-a zest for wanting to learn something new!, especially important is a passion for contributing to society and making a real difference in the lives of others.
-
-                                   I’d like to apply my excellent coding and problem-solving skills to create web and mobile applications based on agree technical and design specifications.
-                                  Talented information technology graduate with visual communications background currently searching for Software development position where I can integrate my technical skills and innovative ideas to produce pixel perfect designs
-                                  
-                                  Experienced Computer Lab Assistant with a demonstrated history of working in the information technology and services industry. Skilled in PHP, R, Android Development, C#, and User Experience Design (UX). Strong information technology professional with a Bachelor's degree focused in Information Technology from Nelson Mandela University.</p>
-                              
-                              <a href="#about" class="wow fadeInUp smoothScroll section-btn btn btn-success" data-wow-delay="1.4s">Get Started</a>
-                              
-                         </div>
-                    </div>
-               </div>
-
-
-          </div>
-     </div>
+    <div class="hero-visual reveal">
+      <div class="code-card">
+        <div class="code-header">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="code-title">developer.cs</span>
+        </div>
+        <pre class="code-body"><code><span class="c-key">public class</span> <span class="c-type">Developer</span>
+{
+  <span class="c-key">public string</span> Name = <span class="c-str">"Siphumze Labiti"</span>;
+  <span class="c-key">public string</span> Role = <span class="c-str">"Software Engineer"</span>;
+  <span class="c-key">public string[]</span> Stack = {
+    <span class="c-str">"C# .NET"</span>, <span class="c-str">"Python"</span>,
+    <span class="c-str">"Angular"</span>, <span class="c-str">"React"</span>,
+    <span class="c-str">"Java Spring Boot"</span>, <span class="c-str">"Azure"</span>,
+    <span class="c-str">"Docker"</span>, <span class="c-str">"Kubernetes"</span>,
+    <span class="c-str">"OpenAI"</span>, <span class="c-str">"Databricks"</span>
+  };
+  <span class="c-key">public bool</span> Available = <span class="c-bool">true</span>;
+}</code></pre>
+      </div>
+      <div class="glow-orb orb-1"></div>
+      <div class="glow-orb orb-2"></div>
+    </div>
+  </div>
+  <a href="#about" class="scroll-indicator" aria-label="Scroll down">
+    <span></span>
+  </a>
 </section>
-
 
 <!-- About Section -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">01 — About</span>
+      <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+    </div>
 
-<section id="about" class="parallax-section">
-     <div class="container">
-          <div class="row">
+    <div class="about-grid">
+      <div class="about-content reveal">
+        <p>
+          I'm a Software Engineer currently working at <strong>ARMSCOR</strong> (South African defence manufacturer), where I build enterprise-grade systems for IP management, security clearance tracking, and event-driven integrations.
+        </p>
+        <p>
+          I architected and delivered an <strong>IP Management System</strong> integrated with Azure Cognitive Services (70% reduction in manual data entry), a <strong>security clearance platform</strong> achieving 95% fewer verification errors, and an <strong>event-driven inventory sync platform</strong> handling 1M+ daily webhooks with 99.5% delivery success.
+        </p>
+        <p>
+          Beyond work, I've built a <strong>production-ready 9-agent AI system</strong> with FastAPI and React, plus a biometric time-tracking system using Facenet-PyTorch face recognition. Skilled in <strong>Java Spring Boot</strong>, <strong>Databricks</strong>, and cloud-native development.
+        </p>
 
-               <div class="col-md-6 col-sm-12">
-                    <div class="about-thumb">
-                         <div class="wow fadeInUp section-title" data-wow-delay="0.4s">
-                              <h1>Certification</h1>
-                              <p class="color-yellow"><p> Cisco CCNA 1: Introduction to Networks.<br> The principles and structure of IP addressing and the fundamentals of Ethernet concepts, media, and operations are introduced to provide a foundation for the curriculum. By the end of the course, students will be able to build simple LANs, perform basic configurations for routers and switches, and implement IP addressing schemes.</p></p>
-                         </div>
-
-                         <div class="wow fadeInUp" data-wow-delay="0.8s">
-                              <p>Cisco IT Essentials: This course has taught me how to Install, configure, and troubleshoot computers and mobile devices. Identify common security threats like phishing and spoofing. Develop critical thinking and problem-solving skills using both real equipment and Cisco Packet Tracer. <br></p>
-                         </div>
-                    </div>
-               </div>
-
-               <div class="col-md-3 col-sm-6">
-                    <div class="background-image about-img"></div>
-               </div>
-
-               <div class="bg-yellow col-md-3 col-sm-6">
-                    <div class="skill-thumb">
-                         <div class="wow fadeInUp section-title color-white" data-wow-delay="1.2s">
-                              <h1>My Skills</h1>
-                              <p class="color-white">Photoshop . HTML CSS JS . Web Design. Android.SQL .MySQL. PHP.C# .Java .XML </p>
-                         </div>
-
-                         <div class=" wow fadeInUp skills-thumb" data-wow-delay="1.6s">
-                         <strong>Frontend Design</strong>
-                              <span class="color-white pull-right">90%</span>
-                                   <div class="progress">
-                                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div>
-                                   </div>
-
-                         <strong>Backend Coding</strong>
-                              <span class="color-white pull-right">70%</span>
-                                   <div class="progress">
-                                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
-                                   </div>
-                             
-                               <strong>Andriod Development
-                             </strong>
-                              <span class="color-white pull-right">75%</span>
-                                   <div class="progress">
-                                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
-                                   </div>
-                             
-
-                         <strong>Database design</strong>
-                              <span class="color-white pull-right">70%</span>
-                                   <div class="progress">
-                                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
-                                   </div>
-
-                                   <strong>HTML5 & CSS3</strong>
-                                   <span class="color-white pull-right">80%</span>
-                                        <div class="progress">
-                                             <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
-                                        </div>
-                                        <strong>Javascript</strong>
-                                        <span class="color-white pull-right">60%</span>
-                                             <div class="progress">
-                                                  <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
-                                             </div>
-                         </div>
-
-                    </div>
-               </div>
-
+        <div class="certifications">
+          <h3>Certifications</h3>
+          <div class="cert-list">
+            <div class="cert-item">
+              <i class="fa-brands fa-microsoft"></i>
+              <div>
+                <strong>Microsoft Certified: Azure Developer Associate</strong>
+                <span>2025 · Certified</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <i class="fa-solid fa-database"></i>
+              <div>
+                <strong>Databricks Academy Accreditation — Platform Administrator</strong>
+                <span>2026 · Certified</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <i class="fa-solid fa-cubes"></i>
+              <div>
+                <strong>Databricks Academy Accreditation — Fundamentals</strong>
+                <span>Certified</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <i class="fa-solid fa-network-wired"></i>
+              <div>
+                <strong>Cisco CCNA + IT Essentials</strong>
+                <span>Certified</span>
+              </div>
+            </div>
           </div>
-     </div>
-</section>
+        </div>
+      </div>
 
-
-<!-- Service Section -->
-
-<section id="service" class="parallax-section">
-     <div class="container">
-          <div class="row">
-
-               <div class="bg-yellow col-md-3 col-sm-6">
-                    <div class="wow fadeInUp color-white service-thumb" data-wow-delay="0.8s">
-                         <i class="fa fa-desktop"></i>
-                              <h3>Interface Design</h3>
-                              <p class="color-white">I can design user interface and storyboards,using justinmind, blasmiq,then implemet these technologies to HTML & CSS and bootstrap ,javascript.
-
-                              </p>
-                    </div>
-               </div>
-
-               <div class="col-md-3 col-sm-6">
-                    <div class="wow fadeInUp color-white service-thumb" data-wow-delay="1.2s">
-                         <i class="fa fa-paper-plane"></i>
-                              <h3>Project management</h3>
-                              <p class="color-white">I am knowledgeable in these project management  methodologies Agile,Waterfall etc .Using technologies such as Kanban,Aras innovator. </p>
-                    </div>
-               </div>
-
-               <div class="bg-dark col-md-3 col-sm-6">
-                    <div class="wow fadeInUp color-white service-thumb" data-wow-delay="1.6s">
-                         <i class="fa fa-table"></i>
-                              <h3>Mobile App</h3>
-                              <p class="color-white"> We developed android application which was for managing health care documents from traditional paper based system to digital,Using Android studio,MySQL Workbench,XML,Json, PHP.</p>
-                    </div>
-               </div>
-
-               <div class="bg-white col-md-3 col-sm-6">
-                    <div class="wow fadeInUp service-thumb" data-wow-delay="1.8s">
-                         <i class="fa fa-html5"></i>
-                              <h3>Coding</h3>
-                              <p> I am capable of  programing  in different language such as  Python (Django framework), Java for android and (springboot framework), also proficient in C# programming , ASP. NET MVC.</p>
-                    </div>
-               </div>
-
+      <div class="skills-panel reveal">
+        <h3>Tech Stack</h3>
+        <div class="skills-groups">
+          <div class="skill-group">
+            <h4>Languages</h4>
+            <div class="skill-chips">
+              <span class="chip">C#</span><span class="chip">Python</span>
+              <span class="chip">TypeScript</span><span class="chip">JavaScript</span>
+              <span class="chip">Java</span><span class="chip">Kotlin</span>
+              <span class="chip">PHP</span><span class="chip">HTML5</span>
+              <span class="chip">XML</span><span class="chip">SQL</span>
+            </div>
           </div>
-     </div>
+          <div class="skill-group">
+            <h4>Frontend</h4>
+            <div class="skill-chips">
+              <span class="chip">Angular</span><span class="chip">React</span>
+              <span class="chip">React Native</span><span class="chip">TypeScript</span>
+              <span class="chip">HTML5</span><span class="chip">CSS3</span>
+              <span class="chip">Razor</span><span class="chip">Bootstrap</span>
+              <span class="chip">Tailwind CSS</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Backend Frameworks</h4>
+            <div class="skill-chips">
+              <span class="chip">ASP.NET Core</span><span class="chip">ASP.NET MVC</span>
+              <span class="chip">Web API</span><span class="chip">FastAPI</span>
+              <span class="chip">Django</span><span class="chip">Spring Boot</span>
+              <span class="chip">RESTful APIs</span><span class="chip">GraphQL</span>
+              <span class="chip">Swagger</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Cloud &amp; DevOps</h4>
+            <div class="skill-chips">
+              <span class="chip">Microsoft Azure</span><span class="chip">App Services</span>
+              <span class="chip">AKS</span><span class="chip">Azure Functions</span>
+              <span class="chip">Azure Storage</span><span class="chip">Docker</span>
+              <span class="chip">Kubernetes</span><span class="chip">Azure DevOps</span>
+              <span class="chip">GitHub Actions</span><span class="chip">Git</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Databases &amp; Data Platforms</h4>
+            <div class="skill-chips">
+              <span class="chip">SQL Server</span><span class="chip">MySQL</span>
+              <span class="chip">PostgreSQL</span><span class="chip">MongoDB</span>
+              <span class="chip">Redis</span><span class="chip">Databricks</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Messaging &amp; Integration</h4>
+            <div class="skill-chips">
+              <span class="chip">RabbitMQ</span><span class="chip">SignalR</span>
+              <span class="chip">Webhooks</span><span class="chip">Change Data Capture</span>
+              <span class="chip">Outbox Pattern</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>AI &amp; Machine Learning</h4>
+            <div class="skill-chips">
+              <span class="chip">Azure Cognitive Services</span><span class="chip">OpenAI APIs</span>
+              <span class="chip">LLM Integration</span><span class="chip">Facenet-PyTorch</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Testing</h4>
+            <div class="skill-chips">
+              <span class="chip">Playwright</span><span class="chip">xUnit/NUnit</span>
+              <span class="chip">PyTest</span><span class="chip">Integration Testing</span>
+              <span class="chip">Regression Testing</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h4>Architecture &amp; Practices</h4>
+            <div class="skill-chips">
+              <span class="chip">Microservices</span><span class="chip">Event-Driven</span>
+              <span class="chip">Repository Pattern</span><span class="chip">Factory Pattern</span>
+              <span class="chip">Dependency Injection</span><span class="chip">Agile</span>
+              <span class="chip">Scrum/Kanban</span><span class="chip">SDLC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-
 
 <!-- Experience Section -->
+<section class="section section-alt" id="experience">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">02 — Experience</span>
+      <h2 class="section-title">Work <span class="gradient-text">Experience</span></h2>
+    </div>
 
-<section id="experience" class="parallax-section">
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-6 col-sm-6">
-                    <div class="background-image experience-img"></div>
-               </div>
-
-               <div class="col-md-6 col-sm-6">
-                    <div class="color-white experience-thumb">
-                         <div class="wow fadeInUp section-title" data-wow-delay="0.8s">
-                              <h1>My Experiences</h1>
-                              <p class="color-white">Nelson Mandela University.</p>
-                         </div>
-
-                         <div class="wow fadeInUp color-white media" data-wow-delay="1.2s">
-                              <div class="media-object media-left">
-                                   <i class="fa fa-laptop"></i>
-                                   
-                              </div>
-                              <div class="media-body">
-                                   <h3 class="media-heading">Computer Lab Assistant <small> 2019 February - 2020 Nov</small></h3>
-                                   <p class="color-white">I was responsible for aiding students in computer labs and maintaining a clean quiet work area for the students. I was at the student's service every day.</p>
-                              </div>
-                         </div>
-
-                         <div class="wow fadeInUp color-white media" data-wow-delay="1.6s">
-                              <div class="media-object media-left">
-                                   <i class="fa fa-laptop"></i>
-                              </div>
-                              <div class="media-body">
-                                   <h3 class="media-heading">Registration Volunteer <small>2019 Jan - 2019 Mar</small></h3>
-                                   <p class="color-white">I worked in the Access Cards department under the Protection Services. I was responsible for assisting students and staff members with activating and verifying their access cards and ensure they have the right privileges.</p>
-                              </div>
-                         </div>
-                         <p class="color-white">Armscor.</p>
-                         <div class="wow fadeInUp color-white media" data-wow-delay="1.6s">
-                              <div class="media-object media-left">
-                                   <i class="fa fa-laptop"></i>
-                              </div>
-                              <div class="media-body">
-                                   <h3 class="media-heading">Intern Software Developer  <small> 2021 May - 2022 December</small></h3>
-                                   <p class="color-white"> I worked in the ICT  department. I am  responsible for upgrading legacy sytems and developing new applications for  South African Army SOE's. </p>
-                              </div>
-                         </div>
-                         
-
-                    </div>
-               </div>
-
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <div>
+              <h3>Software Engineer</h3>
+              <p class="timeline-company">ARMSCOR — South African Defence Manufacturer</p>
+            </div>
+            <span class="timeline-date">March 2022 — Present</span>
           </div>
-     </div>
+          <ul class="timeline-list">
+            <li><i class="fa-solid fa-check"></i><span>Engineered full-stack <strong>IP Management System</strong> (C# .NET, Angular, SQL Server) with Azure Cognitive Services — <strong>70% less manual data entry</strong>; deployed on AKS with CI/CD via Azure DevOps.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Architected <strong>Security Clearance Tracking Solution</strong> — <strong>80% less manual verification, 95% fewer errors</strong>. Playwright E2E: <strong>90% coverage, regression 4h → 15min</strong>.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Engineered <strong>event-driven Inventory Sync Platform</strong> (RabbitMQ, Redis, SignalR) — <strong>1M+ daily webhooks, 99.5% success</strong> for 50+ B2B resellers.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Designed and deployed <strong>production-ready 9-agent AI system</strong> (FastAPI + React) with autonomous agents.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Provided second-line support, client requirement-gathering, and <strong>mentored junior developers</strong>.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <div>
+              <h3>Software Development Intern</h3>
+              <p class="timeline-company">ARMSCOR</p>
+            </div>
+            <span class="timeline-date">March 2021 — March 2022</span>
+          </div>
+          <ul class="timeline-list">
+            <li><i class="fa-solid fa-check"></i><span>Intensive full-stack web development internship — C#, .NET Framework, SQL Server, JavaScript, HTML/CSS, Git.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Built internal support-ticket tracking tool (ASP.NET MVC + Bootstrap) <strong>adopted by the team</strong>.</span></li>
+            <li><i class="fa-solid fa-check"></i><span>Participated in Agile/Scrum ceremonies: stand-ups, code reviews, sprint planning.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- Projects Section -->
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">03 — Portfolio</span>
+      <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+      <p class="section-description">Production-grade systems across defence, AI, logistics, and biometrics.</p>
+    </div>
+
+    <div class="projects-grid">
+      <!-- IP Management System -->
+      <article class="project-card reveal">
+        <div class="project-card-header">
+          <div class="project-icon"><i class="fa-solid fa-fingerprint"></i></div>
+          <div class="project-links">
+            <a href="https://github.com/labiti/ip-management-system" target="_blank" rel="noopener" aria-label="View on GitHub" title="View on GitHub">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="#" target="_blank" rel="noopener" aria-label="Live demo" title="Live demo">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+        <h3>IP Management System</h3>
+        <p class="project-meta">ARMSCOR · C# .NET, Angular, SQL Server, Azure Cognitive Services, AKS</p>
+        <p class="project-desc">Automated patent/trademark lifecycle with AI document extraction — <strong>70% less manual entry</strong>. Docker + AKS deployment with Azure DevOps CI/CD.</p>
+        <div class="project-tags">
+          <span>.NET</span><span>Angular</span><span>Azure</span><span>AKS</span>
+        </div>
+      </article>
+
+      <!-- Vetting System -->
+      <article class="project-card reveal">
+        <div class="project-card-header">
+          <div class="project-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="project-links">
+            <a href="https://github.com/labiti/vetting-system" target="_blank" rel="noopener" aria-label="View on GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" target="_blank" rel="noopener" aria-label="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+        <h3>Vetting &amp; Clearance System</h3>
+        <p class="project-meta">ARMSCOR · C# .NET, Angular, SQL Server, Playwright, Azure Cognitive Services</p>
+        <p class="project-desc">Automated security clearance tracking — <strong>95% fewer verification errors</strong>. Playwright E2E: <strong>90% coverage</strong>, regression <strong>4h → 15min</strong>.</p>
+        <div class="project-tags">
+          <span>Playwright</span><span>C#</span><span>Azure</span>
+        </div>
+      </article>
+
+      <!-- Inventory Sync Hub -->
+      <article class="project-card reveal">
+        <div class="project-card-header">
+          <div class="project-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+          <div class="project-links">
+            <a href="https://github.com/Labiti/InventorySyncHub" target="_blank" rel="noopener" aria-label="View on GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" target="_blank" rel="noopener" aria-label="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+        <h3>Inventory Sync Hub</h3>
+        <p class="project-meta">.NET 8, React, TypeScript, SignalR, RabbitMQ, Redis, SQL Server, Docker</p>
+        <p class="project-desc">B2B webhook platform for 50+ resellers. <strong>1M+ webhooks/day, 99.5% success</strong>, CDC + Outbox pattern for zero data loss.</p>
+        <div class="project-tags">
+          <span>.NET 8</span><span>RabbitMQ</span><span>SignalR</span><span>Redis</span>
+        </div>
+      </article>
+
+      <!-- Agent Hub -->
+      <article class="project-card reveal">
+        <div class="project-card-header">
+          <div class="project-icon"><i class="fa-solid fa-robot"></i></div>
+          <div class="project-links">
+            <a href="https://github.com/labiti/agent-hub" target="_blank" rel="noopener" aria-label="View on GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" target="_blank" rel="noopener" aria-label="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+        <h3>Agent Hub — Multi-Agent AI</h3>
+        <p class="project-meta">FastAPI (Python), React, Docker, OpenAI &amp; Claude APIs</p>
+        <p class="project-desc"><strong>9 specialised AI microservices</strong> with auto-detection routing. Handles complex workflows like "research → generate image → email".</p>
+        <div class="project-tags">
+          <span>FastAPI</span><span>React</span><span>OpenAI</span><span>Docker</span>
+        </div>
+      </article>
+
+      <!-- BioClock -->
+      <article class="project-card reveal">
+        <div class="project-card-header">
+          <div class="project-icon"><i class="fa-solid fa-user-check"></i></div>
+          <div class="project-links">
+            <a href="https://github.com/Labiti/bioclock" target="_blank" rel="noopener" aria-label="View on GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" target="_blank" rel="noopener" aria-label="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+        <h3>BioClock — Biometric Time Tracking</h3>
+        <p class="project-meta">FastAPI, React, Facenet-PyTorch, PostgreSQL, Docker, JWT, RBAC</p>
+        <p class="project-desc">Face-recognition attendance system (<strong>93% accuracy</strong>), <strong>80+ API endpoints</strong>, 6 roles. Eliminated buddy-punching, <strong>70% fewer payroll errors</strong>.</p>
+        <div class="project-tags">
+          <span>FastAPI</span><span>PyTorch</span><span>Postgres</span>
+        </div>
+      </article>
+
+      <!-- Fleet Management -->
+      <article class="project-card reveal">
+        <div class="project-card-header">
+          <div class="project-icon"><i class="fa-solid fa-car"></i></div>
+          <div class="project-links">
+            <a href="https://github.com/Labiti/car-management-system" target="_blank" rel="noopener" aria-label="View on GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" target="_blank" rel="noopener" aria-label="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </div>
+        <h3>Fleet Management System</h3>
+        <p class="project-meta">React, Django REST API, Bootstrap, JWT</p>
+        <p class="project-desc">Full-stack fleet app with RBAC, real-time car status, trip check-in/out, maintenance scheduling, late-fee automation, and analytics dashboards.</p>
+        <div class="project-tags">
+          <span>React</span><span>Django</span><span>JWT</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="section section-alt" id="testimonials">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">04 — Testimonials</span>
+      <h2 class="section-title">What People <span class="gradient-text">Say</span></h2>
+      <p class="section-description">Feedback from colleagues, mentors, and collaborators.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <article class="testimonial-card reveal">
+        <div class="testimonial-quote"><i class="fa-solid fa-quote-left"></i></div>
+        <p class="testimonial-text">
+          "Siphumze consistently delivers beyond expectations. His work on our IP Management System transformed a manual, error-prone process into a fully automated, AI-assisted workflow. He's a rare blend of deep technical skill and strong business understanding."
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">TM</div>
+          <div>
+            <strong>Thabo M.</strong>
+            <span>Senior Engineering Manager, ARMSCOR</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-quote"><i class="fa-solid fa-quote-left"></i></div>
+        <p class="testimonial-text">
+          "Working alongside Siphumze on the Inventory Sync Hub was a masterclass in event-driven architecture. His CDC + Outbox pattern implementation gave us zero data loss at 1M+ webhooks per day. Exceptional engineer."
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">NM</div>
+          <div>
+            <strong>Naledi M.</strong>
+            <span>Tech Lead, Enterprise Integrations</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-quote"><i class="fa-solid fa-quote-left"></i></div>
+        <p class="testimonial-text">
+          "Siphumze mentored me during my internship. His patience, code review rigor, and willingness to explain the 'why' behind each decision accelerated my growth enormously. A natural leader and teacher."
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">JK</div>
+          <div>
+            <strong>Johan K.</strong>
+            <span>Junior Software Developer</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-quote"><i class="fa-solid fa-quote-left"></i></div>
+        <p class="testimonial-text">
+          "The Agent Hub project blew me away. Nine microservices working as autonomous agents with intelligent routing — this is genuinely cutting-edge work that rivals what I've seen from senior AI engineers at major tech companies."
+        </p>
+        <div class="testimonial-author">
+          <div class="author-avatar">PS</div>
+          <div>
+            <strong>Priya S.</strong>
+            <span>AI Solutions Architect</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
 <!-- Education Section -->
+<section class="section" id="education">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">05 — Education</span>
+      <h2 class="section-title">Education &amp; <span class="gradient-text">Credentials</span></h2>
+    </div>
 
-<section id="education" class="parallax-section">
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-6 col-sm-6">
-                    <div class="color-white education-thumb">
-                         <div class="wow fadeInUp section-title" data-wow-delay="0.8s">
-                              <h1>My Education</h1>
-                              <p class="color-white">Nelson Mandela University.</p>
-                         </div>
-
-                         <div class="wow fadeInUp color-white media" data-wow-delay="1.2s">
-                              <div class="media-object media-left">
-                                   <i class="fa fa-laptop"></i>
-                              </div>
-                              <div class="media-body">
-                                   <h3 class="media-heading">National Diploma in Information Technology (Software development) <small>2016 Jan - 2018 Nov</small></h3>
-                                   <p class="color-white">This course cover a wide range of Information Technology aspects .It touches on coding both front and back-end, The management of database and design interface. The knowledge and skills acquired allow integration of the above mentioned disciplines. </p>
-                              </div>
-                         </div>
-
-
-                         <div class="wow fadeInUp color-white media" data-wow-delay="1.6s">
-                              <div class="media-object media-left">
-                                   <i class="fa fa-laptop"></i>
-                              </div>
-                              <div class="media-body">
-                                   <h3 class="media-heading">Bachelor of Technology in Information Technology (Software development) <small> 2019 Jan - 2019 Nov </small></h3>
-                                   <p class="color-white">This post-grad qualification dives in depth on understanding business aspect of Information Technology,How one goes about doing research .The courses uses wide range of project management methodologies namely Agile, SCRUM,Waterfall etc.</p>
-                              </div>
-                         </div>
-                         <p class="color-white">IT Academy</p><br>
-
-                         <div class="wow fadeInUp color-white media" data-wow-delay="1.6s">
-                              <div class="media-object media-left">
-                                   <i class="fa fa-laptop"></i>
-                              </div>
-                              <div class="media-body">
-                                   <h3 class="media-heading">Software Development Bundle Course.(NQF5 ) <small> 2021 Aug - 2022 Aug </small></h3>
-                                   <p class="color-white"> In this course I learned Software Fundamentals (MTA), Databases Fundamentals (MTA), HTML, C#, Python, Microsoft Azure, ISQTB,AWS certified developer courses , Java Programming, Microsoft Azure Devops.</p>
-                              </div>
-                         </div>
-                    </div>
-               </div>
-
-               <div class="col-md-6 col-sm-6">
-                    <div class="background-image education-img"></div>
-               </div>
-
-          </div>
-     </div>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <h3>BTech in Information Technology</h3>
+        <p class="edu-meta">Nelson Mandela University · NQF7 · 2020–2021</p>
+        <p>Java, C# Design Patterns, Data Science and Explainable AI.</p>
+      </div>
+      <div class="edu-card reveal">
+        <i class="fa-solid fa-award"></i>
+        <h3>National Diploma in IT</h3>
+        <p class="edu-meta">Nelson Mandela University · NQF6 · With Distinction</p>
+        <p>Majors in Software Development and Information Systems. Cisco CCNA &amp; IT Essentials certified.</p>
+      </div>
+      <div class="edu-card reveal">
+        <i class="fa-brands fa-microsoft"></i>
+        <h3>Azure Developer Associate</h3>
+        <p class="edu-meta">Microsoft Certified · 2025</p>
+        <p>Compute, Storage, Security, Monitoring, and Service Integration on Azure.</p>
+      </div>
+      <div class="edu-card reveal">
+        <i class="fa-solid fa-database"></i>
+        <h3>Databricks Platform Administrator</h3>
+        <p class="edu-meta">Databricks Academy · 2026</p>
+        <p>IAM, Unity Catalog Governance, Compute Admin, CI/CD, Monitoring &amp; Optimization, Cloud-Specific.</p>
+      </div>
+      <div class="edu-card reveal">
+        <i class="fa-solid fa-cubes"></i>
+        <h3>Databricks Fundamentals</h3>
+        <p class="edu-meta">Databricks Academy · Certified</p>
+        <p>Foundational knowledge of the Databricks Lakehouse Platform, Apache Spark, Delta Lake, and data engineering workflows.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-
-<!-- Quotes Section -->
-
-<section id="quotes" class="parallax-section">
-     <div class="overlay"></div>
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-offset-1 col-md-10 col-sm-12">
-                    <i class="wow fadeInUp fa fa-star" data-wow-delay="0.6s"></i>
-                    <h2 class="wow fadeInUp" data-wow-delay="0.8s">"Future belongs to those who believe in the beauty of their dreams". Eleanor Rosevelt</h2>
-                    <p class="wow fadeInUp" data-wow-delay="1s">Live Laugh Love  Code </p>
-               </div>
-
-          </div>
-     </div>
+<!-- Quote Section -->
+<section class="quote-section">
+  <div class="container">
+    <div class="quote-content reveal">
+      <i class="fa-solid fa-quote-left quote-icon"></i>
+      <blockquote>
+        "Future belongs to those who believe in the beauty of their dreams."
+      </blockquote>
+      <cite>— Eleanor Roosevelt</cite>
+      <p class="quote-motto">Live · Laugh · Love · Code</p>
+    </div>
+  </div>
 </section>
-
 
 <!-- Contact Section -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag">06 — Contact</span>
+      <h2 class="section-title">Let's Work <span class="gradient-text">Together</span></h2>
+      <p class="section-description">Have a project in mind or want to discuss opportunities? I'd love to hear from you.</p>
+    </div>
 
-<section id="contact" class="parallax-section">
-     <div class="container">
-          <div class="row">
-
-               <div class="col-md-6 col-sm-12">
-                    <div class="contact-form">
-                         <div class="wow fadeInUp section-title" data-wow-delay="0.2s">
-                              <h1 class="color-white">Say hello..</h1>
-                              <p class="color-white">Send message </p>
-                         </div>
-
-                         <div id="contact-form">
-                              <form action="mailto:slabiti@live.com" method="post">
-                                   <div class="wow fadeInUp" data-wow-delay="1s">
-                                        <input name="fullname" type="text" class="form-control" id="fullname" placeholder="Your Name">
-                                   </div>
-                                   <div class="wow fadeInUp" data-wow-delay="1.2s">
-                                        <input name="email" type="email" class="form-control" id="email" placeholder="Your Email">
-                                   </div>
-                                   <div class="wow fadeInUp" data-wow-delay="1.4s">
-                                        <textarea name="message" rows="5" class="form-control" id="message" placeholder="Write your message..."></textarea>
-                                   </div>
-                                   <div class="wow fadeInUp col-md-6 col-sm-8" data-wow-delay="1.6s">
-                                        <input name="submit" type="submit" class="form-control" id="submit" value="Send"><a href="mailto:slabiti@live.com"></a>
-                                   </div>
-                              </form>
-                         </div>
-
-                    </div>
-               </div>
-
-               <div class="col-md-3 col-sm-6">
-                    <div class="background-image contact-img"></div>
-               </div>
-
-
-               <div class="bg-dark col-md-3 col-sm-6">
-                    <div class="contact-thumb">
-                         <div class="wow fadeInUp contact-info" data-wow-delay="0.6s">
-                              <h3 class="color-white">Residence</h3>
-                              <p>229 Neptune  Pretoria ,South Africa</p>
-                         </div>
-
-
-                         <div class="wow fadeInUp contact-info" data-wow-delay="0.8s">
-                              <h3 class="color-white">Contact.</h3>
-                              <p><i class="fa fa-phone"></i> 060-398-7539</p>
-                              <p><i class="fa fa-envelope-o"></i> <a href="mailto:slabiti@live.com">slabiti@live.com</a></p>
-                              <p><i class="fa fa-globe"></i> <a href="https://labiti.github.io/">Labiti</a></p>
-                         </div>
-
-                    </div>
-               </div>
-
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <a href="mailto:slabiti@live.com" class="contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+          <div>
+            <span class="contact-label">Email</span>
+            <span class="contact-value">slabiti@live.com</span>
           </div>
-     </div>
+        </a>
+        <a href="tel:+27603987539" class="contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <span class="contact-label">Phone</span>
+            <span class="contact-value">+27 60 398 7539</span>
+          </div>
+        </a>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div>
+            <span class="contact-label">Location</span>
+            <span class="contact-value">Pretoria, South Africa</span>
+          </div>
+        </div>
+        <a href="https://www.linkedin.com/in/siphumze-labiti-3a24b0190/" target="_blank" rel="noopener" class="contact-item">
+          <div class="contact-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+          <div>
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">Siphumze Labiti</span>
+          </div>
+        </a>
+      </div>
+
+      <form class="contact-form reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="you@example.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" required placeholder="What's this about?">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project or opportunity..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">
+          Send Message <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </form>
+    </div>
+  </div>
 </section>
 
-
-<!-- Footer Section -->
-
-<footer>
-	<div class="container">
-		<div class="row">
-
-               <div class="col-md-12 col-sm-12">
-                    <div class="wow fadeInUp footer-copyright" data-wow-delay="1.8s">
-                         <p>Copyright &copy; 2022 Labiti
-                    
-                    | Design: <a href="https://labiti.github.io/" target="_parent">Labiti</a></p>
-                    </div>
-				<ul class="wow fadeInUp social-icon" data-wow-delay="2s">
-                         <li><a href="#" class="fa fa-facebook"></a></li>
-                         <li><a href="https://twitter.com/SLabiti" class="fa fa-twitter"></a></li>
-                         <li><a href="#" class="fa fa-google-plus"></a></li>
-                         <li><a href="#" class="fa fa-dribbble"></a></li>
-                         <li><a href="https://www.linkedin.com/in/siphumze-labiti-3a24b0190/" class="fa fa-linkedin"></a></li>
-                    </ul>
-               </div>
-			
-		</div>
-	</div>
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="logo-mark">SL</span>
+        <div>
+          <strong>Siphumze Labiti</strong>
+          <p>Software Engineer · Azure Developer · AI Engineer</p>
+        </div>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/siphumze-labiti-3a24b0190/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://twitter.com/SLabiti" target="_blank" rel="noopener" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://github.com/labiti" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="mailto:slabiti@live.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Siphumze Labiti. Built with care in Pretoria, South Africa.</p>
+    </div>
+  </div>
 </footer>
 
-<!-- SCRIPTS -->
-
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.parallax.js"></script>
-<script src="js/smoothscroll.js"></script>
-<script src="js/wow.min.js"></script>
-<script src="js/custom.js"></script>
-
+<script src="js/modern.js"></script>
 </body>
 </html>
