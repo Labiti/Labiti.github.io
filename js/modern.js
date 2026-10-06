@@ -1,6 +1,7 @@
 /* ==========================================================================
    Modern Portfolio — Siphumze Labiti
-   Includes: theme, particles, counters, filters, carousel, radar, typewriter
+   Includes: theme, particles, counters, filters, carousel, radar, typewriter,
+             project modals, contact form AJAX
    ========================================================================== */
 
 (function () {
@@ -127,7 +128,6 @@
 
         const tick = (now) => {
           const progress = Math.min((now - start) / duration, 1);
-          // easeOutCubic
           const eased = 1 - Math.pow(1 - progress, 3);
           const value = Math.round(target * eased);
           el.textContent = value + suffix;
@@ -177,15 +177,23 @@
   /* ============ 9. CARD TILT ============ */
   if (!prefersReducedMotion) {
     document.querySelectorAll('.project-card').forEach(card => {
+      let tiltFrame = null;
       card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width;
-        const y = (e.clientY - rect.top) / rect.height;
-        const rotateX = (y - 0.5) * 4;
-        const rotateY = (x - 0.5) * -4;
-        card.style.transform = `translateY(-6px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        if (tiltFrame) return;
+        tiltFrame = requestAnimationFrame(() => {
+          const rect = card.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width;
+          const y = (e.clientY - rect.top) / rect.height;
+          const rotateX = (y - 0.5) * 3;
+          const rotateY = (x - 0.5) * -3;
+          card.style.transform = `translateY(-6px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+          tiltFrame = null;
+        });
       });
-      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+        tiltFrame = null;
+      });
     });
   }
 
@@ -291,8 +299,6 @@
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const filter = btn.getAttribute('data-filter');
-
-      // Update active state
       filterBtns.forEach(b => b.classList.toggle('active', b === btn));
 
       let visibleCount = 0;
@@ -314,19 +320,12 @@
           card.style.opacity = '0';
           card.style.transform = 'translateY(20px) scale(0.98)';
           card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-          setTimeout(() => {
-            if (card.getAttribute('data-hidden') !== 'false') {
-              card.style.display = 'none';
-            }
-          }, 300);
+          setTimeout(() => { card.style.display = 'none'; }, 300);
         }
       });
 
-      // Show/hide empty state
       if (filterEmpty) {
-        setTimeout(() => {
-          filterEmpty.hidden = visibleCount > 0;
-        }, 320);
+        setTimeout(() => { filterEmpty.hidden = visibleCount > 0; }, 320);
       }
     });
   });
@@ -345,7 +344,6 @@
     let autoTimer = null;
     const AUTO_INTERVAL = 6000;
 
-    // Build dots
     slides.forEach((_, i) => {
       const dot = document.createElement('button');
       dot.className = 'carousel-dot';
@@ -356,20 +354,15 @@
     const dots = Array.from(dotsContainer.querySelectorAll('.carousel-dot'));
 
     function update() {
-      // Slide track
       track.style.transform = `translateX(-${currentIndex * 100}%)`;
-      // Update dots
       dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
-      // Update slide aria
       slides.forEach((s, i) => s.setAttribute('aria-hidden', i === currentIndex ? 'false' : 'true'));
     }
-
     function goTo(index) {
       currentIndex = (index + slides.length) % slides.length;
       update();
       restartAuto();
     }
-
     function next() { goTo(currentIndex + 1); }
     function prev() { goTo(currentIndex - 1); }
 
@@ -384,25 +377,18 @@
 
     nextBtn.addEventListener('click', next);
     prevBtn.addEventListener('click', prev);
-
-    // Pause on hover
     carousel?.addEventListener('mouseenter', stopAuto);
     carousel?.addEventListener('mouseleave', startAuto);
-
-    // Pause when tab hidden
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) stopAuto();
       else startAuto();
     });
-
-    // Keyboard
     carousel?.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
       if (e.key === 'ArrowRight') { e.preventDefault(); next(); }
     });
     carousel?.setAttribute('tabindex', '0');
 
-    // Touch swipe
     let touchStartX = 0;
     track.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
     track.addEventListener('touchend', (e) => {
@@ -432,22 +418,12 @@
   function initRadar() {
     const canvas = document.getElementById('skillsRadar');
     if (!canvas || typeof Chart === 'undefined') return;
-
     const c = getRadarColors();
 
     radarChart = new Chart(canvas, {
       type: 'radar',
       data: {
-        labels: [
-          'Backend',
-          'Frontend',
-          'Cloud & DevOps',
-          'AI & ML',
-          'Databases',
-          'Testing',
-          'Architecture',
-          'Messaging'
-        ],
+        labels: ['Backend', 'Frontend', 'Cloud & DevOps', 'AI & ML', 'Databases', 'Testing', 'Architecture', 'Messaging'],
         datasets: [{
           label: 'Proficiency',
           data: [92, 85, 88, 82, 85, 90, 87, 88],
@@ -480,9 +456,7 @@
             borderWidth: 1,
             padding: 10,
             displayColors: false,
-            callbacks: {
-              label: (ctx) => `${ctx.parsed.r}%`
-            }
+            callbacks: { label: (ctx) => `${ctx.parsed.r}%` }
           }
         },
         scales: {
@@ -500,11 +474,7 @@
             angleLines: { color: c.angleLine },
             pointLabels: {
               color: c.text,
-              font: {
-                size: 11,
-                weight: '500',
-                family: 'Inter, sans-serif'
-              }
+              font: { size: 11, weight: '500', family: 'Inter, sans-serif' }
             }
           }
         }
@@ -526,12 +496,9 @@
     radarChart.update('none');
   }
 
-  // Wait for Chart.js to be available (loaded with defer)
   window.addEventListener('load', () => {
-    // Small delay to ensure Chart.js parsed
     setTimeout(() => {
       initRadar();
-      // Only animate when section is visible
       const radarPanel = document.querySelector('.radar-panel');
       if (radarPanel && radarChart) {
         radarChart.options.animation.duration = 0;
@@ -550,9 +517,169 @@
     }, 100);
   });
 
-  // Re-init radar on language change (labels stay English)
   window.addEventListener('languagechange', () => {
-    // Radar labels are technical — keep English; no re-init needed
+    // Radar labels are technical — keep English
   });
 
+})();
+
+/* ==========================================================================
+   PROJECT MODALS — isolated IIFE
+   ========================================================================== */
+(function initModals() {
+  const modals = document.querySelectorAll('.modal');
+  let lastFocusedEl = null;
+
+  function openModal(id) {
+    const modal = document.getElementById(id);
+    if (!modal) {
+      console.warn('Modal not found:', id);
+      return;
+    }
+    lastFocusedEl = document.activeElement;
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => modal.classList.add('modal-open'));
+    const closeBtn = modal.querySelector('.modal-close');
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeModal(modal) {
+    if (!modal) return;
+    modal.classList.remove('modal-open');
+    document.body.style.overflow = '';
+    setTimeout(() => {
+      modal.hidden = true;
+      if (lastFocusedEl && typeof lastFocusedEl.focus === 'function') {
+        lastFocusedEl.focus();
+      }
+    }, 250);
+  }
+
+  window.__openProjectModal = openModal;
+
+  document.querySelectorAll('[data-open-modal]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      openModal(btn.getAttribute('data-open-modal'));
+    });
+  });
+
+  document.querySelectorAll('.project-card[data-project]').forEach(card => {
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('a, button, .project-private-pill')) return;
+      openModal(card.getAttribute('data-project'));
+    });
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openModal(card.getAttribute('data-project'));
+      }
+    });
+  });
+
+  document.querySelectorAll('[data-close-modal]').forEach(el => {
+    el.addEventListener('click', () => closeModal(el.closest('.modal')));
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const openModalEl = document.querySelector('.modal.modal-open');
+      if (openModalEl) closeModal(openModalEl);
+    }
+  });
+
+  /* ---- "Request Access" → close modal, scroll to contact, prefill subject ---- */
+  document.querySelectorAll('[data-scroll-to-contact]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const subject = btn.getAttribute('data-prefill-subject') || '';
+      const openModalEl = document.querySelector('.modal.modal-open');
+
+      const goToContact = () => {
+        const contact = document.getElementById('contact');
+        if (!contact) return;
+        const navHeight = document.querySelector('.nav')?.offsetHeight || 80;
+        const top = contact.getBoundingClientRect().top + window.scrollY - navHeight - 10;
+        window.scrollTo({ top, behavior: 'smooth' });
+
+        setTimeout(() => {
+          if (subject) {
+            const subjInput = document.getElementById('subject');
+            if (subjInput) subjInput.value = subject;
+          }
+          const nameInput = document.getElementById('name');
+          if (nameInput) nameInput.focus();
+        }, 800);
+      };
+
+      if (openModalEl) {
+        closeModal(openModalEl);
+        setTimeout(goToContact, 280);
+      } else {
+        goToContact();
+      }
+    });
+  });
+
+  console.log('✅ Modals initialized:', modals.length);
+})();
+
+/* ==========================================================================
+   CONTACT FORM — AJAX submit (no redirect, inline feedback)
+   ========================================================================== */
+(function initContactForm() {
+  const form = document.querySelector('.contact-form');
+  if (!form) return;
+
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalBtnHTML = submitBtn ? submitBtn.innerHTML : '';
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!submitBtn) return;
+
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.75';
+    submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Sending...';
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        submitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #06b6d4 100%)';
+        submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Message Sent!';
+        form.reset();
+
+        setTimeout(() => {
+          submitBtn.innerHTML = originalBtnHTML;
+          submitBtn.style.background = '';
+          submitBtn.style.opacity = '1';
+          submitBtn.disabled = false;
+        }, 3000);
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (err) {
+      console.error('Form submission failed:', err);
+      submitBtn.style.background = 'linear-gradient(135deg, #ef4444 0%, #ec4899 100%)';
+      submitBtn.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Failed — Try Again';
+
+      setTimeout(() => {
+        submitBtn.innerHTML = originalBtnHTML;
+        submitBtn.style.background = '';
+        submitBtn.style.opacity = '1';
+        submitBtn.disabled = false;
+      }, 3000);
+    }
+  });
 })();

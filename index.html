@@ -62,20 +62,15 @@
     </ul>
 
     <div class="nav-actions">
-      <!-- Language switcher -->
       <div class="lang-switch" id="langSwitch">
         <button class="lang-btn" data-lang-btn="en" aria-label="English">EN</button>
         <button class="lang-btn" data-lang-btn="af" aria-label="Afrikaans">AF</button>
         <button class="lang-btn" data-lang-btn="xh" aria-label="isiXhosa">XH</button>
       </div>
-
-      <!-- Theme toggle -->
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark mode">
         <i class="fa-solid fa-moon icon-moon"></i>
         <i class="fa-solid fa-sun icon-sun"></i>
       </button>
-
-      <!-- Mobile nav -->
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
@@ -215,7 +210,6 @@
           </div>
         </div>
 
-        <!-- Radar Chart -->
         <div class="radar-panel">
           <h3 data-i18n="about.radarTitle">Proficiency Snapshot</h3>
           <div class="radar-wrap">
@@ -376,7 +370,6 @@
       <p class="section-description" data-i18n="proj.description">Production-grade systems across defence, AI, logistics, and biometrics.</p>
     </div>
 
-    <!-- Filter tabs -->
     <div class="projects-filter reveal" role="tablist">
       <button class="filter-btn active" data-filter="all" data-i18n="proj.filter.all">All</button>
       <button class="filter-btn" data-filter="dotnet" data-i18n="proj.filter.dotnet">.NET</button>
@@ -386,107 +379,247 @@
     </div>
 
     <div class="projects-grid" id="projectsGrid">
-      <!-- IP Management -->
-      <article class="project-card reveal" data-categories="dotnet fullstack cloud">
+
+      <!-- ============ 1. IP Management System (Private) ============ -->
+      <article class="project-card reveal" data-categories="dotnet fullstack cloud" data-project="modal-ip">
         <div class="project-card-header">
           <div class="project-icon"><i class="fa-solid fa-fingerprint"></i></div>
           <div class="project-links">
-            <a href="https://github.com/labiti/ip-management-system" target="_blank" rel="noopener" aria-label="View on GitHub" title="View on GitHub"><i class="fa-brands fa-github"></i></a>
-            <a href="#" target="_blank" rel="noopener" aria-label="Live demo" title="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="#" class="project-demo-link" data-demo-url="" aria-label="Live demo" title="Demo coming soon" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <span class="project-private-pill" title="Confidential source code — contact me for a walkthrough">
+              <i class="fa-solid fa-lock"></i> <span>Private</span>
+            </span>
           </div>
         </div>
         <h3>IP Management System</h3>
-        <p class="project-meta">ARMSCOR · C# .NET, Angular, SQL Server, Azure Cognitive Services, AKS</p>
-        <p class="project-desc">Automated patent/trademark lifecycle with AI document extraction — <strong>70% less manual entry</strong>. Docker + AKS deployment with Azure DevOps CI/CD.</p>
+        <p class="project-meta">ARMSCOR · Enterprise · 2022–Present</p>
+        <p class="project-desc">Full-stack patent/trademark lifecycle platform with AI-powered document extraction.</p>
+
+        <div class="project-detail">
+          <h4><i class="fa-solid fa-hammer"></i> What I Built</h4>
+          <ul>
+            <li>Automated classification, renewal tracking, and compliance reporting</li>
+            <li>Azure Cognitive Services for AI document extraction from scanned filings</li>
+            <li>Docker + AKS deployment with Azure DevOps CI/CD</li>
+          </ul>
+        </div>
+
+        <div class="project-results">
+          <h4><i class="fa-solid fa-chart-line"></i> Key Results</h4>
+          <div class="result-badges">
+            <span class="result-badge"><strong>70%</strong> less manual entry</span>
+            <span class="result-badge"><strong>0</strong> missed renewals</span>
+          </div>
+        </div>
+
         <div class="project-tags">
           <span>.NET</span><span>Angular</span><span>Azure</span><span>AKS</span>
         </div>
+
+        <button class="project-view-btn" data-open-modal="modal-ip">
+          View Details <i class="fa-solid fa-arrow-right"></i>
+        </button>
       </article>
 
-      <!-- Vetting System -->
-      <article class="project-card reveal" data-categories="dotnet fullstack">
+      <!-- ============ 2. Vetting & Clearance System (Private) ============ -->
+      <article class="project-card reveal" data-categories="dotnet fullstack" data-project="modal-vetting">
         <div class="project-card-header">
           <div class="project-icon"><i class="fa-solid fa-shield-halved"></i></div>
           <div class="project-links">
-            <a href="https://github.com/labiti/vetting-system" target="_blank" rel="noopener" aria-label="View on GitHub"><i class="fa-brands fa-github"></i></a>
-            <a href="#" target="_blank" rel="noopener" aria-label="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="#" class="project-demo-link" data-demo-url="" aria-label="Live demo" title="Demo coming soon" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <span class="project-private-pill" title="Confidential source code — contact me for a walkthrough">
+              <i class="fa-solid fa-lock"></i> <span>Private</span>
+            </span>
           </div>
         </div>
         <h3>Vetting &amp; Clearance System</h3>
-        <p class="project-meta">ARMSCOR · C# .NET, Angular, SQL Server, Playwright, Azure Cognitive Services</p>
-        <p class="project-desc">Automated security clearance tracking — <strong>95% fewer verification errors</strong>. Playwright E2E: <strong>90% coverage</strong>, regression <strong>4h → 15min</strong>.</p>
-        <div class="project-tags">
-          <span>Playwright</span><span>C#</span><span>Azure</span>
+        <p class="project-meta">ARMSCOR · Enterprise · 2022–Present</p>
+        <p class="project-desc">Security clearance tracking with strict project eligibility rules for classified work.</p>
+
+        <div class="project-detail">
+          <h4><i class="fa-solid fa-hammer"></i> What I Built</h4>
+          <ul>
+            <li>Dynamic clearance-level matching prevents unauthorised assignments</li>
+            <li>Azure Cognitive Services for automated ID document validation</li>
+            <li>Playwright E2E suite running on every pull request via Azure DevOps</li>
+          </ul>
         </div>
+
+        <div class="project-results">
+          <h4><i class="fa-solid fa-chart-line"></i> Key Results</h4>
+          <div class="result-badges">
+            <span class="result-badge"><strong>95%</strong> fewer errors</span>
+            <span class="result-badge"><strong>4h → 15min</strong> regression</span>
+          </div>
+        </div>
+
+        <div class="project-tags">
+          <span>Playwright</span><span>C# .NET</span><span>Azure</span>
+        </div>
+
+        <button class="project-view-btn" data-open-modal="modal-vetting">
+          View Details <i class="fa-solid fa-arrow-right"></i>
+        </button>
       </article>
 
-      <!-- Inventory Sync Hub -->
-      <article class="project-card reveal" data-categories="dotnet fullstack cloud">
+      <!-- ============ 3. Inventory Sync Hub ============ -->
+      <article class="project-card reveal" data-categories="dotnet fullstack cloud" data-project="modal-inventory">
         <div class="project-card-header">
           <div class="project-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
           <div class="project-links">
-            <a href="https://github.com/Labiti/InventorySyncHub" target="_blank" rel="noopener" aria-label="View on GitHub"><i class="fa-brands fa-github"></i></a>
-            <a href="#" target="_blank" rel="noopener" aria-label="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="https://github.com/Labiti/InventorySyncHub" target="_blank" rel="noopener" aria-label="View on GitHub" title="Source code" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="project-demo-link" data-demo-url="" aria-label="Live demo" title="Demo coming soon" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
           </div>
         </div>
         <h3>Inventory Sync Hub</h3>
-        <p class="project-meta">.NET 8, React, TypeScript, SignalR, RabbitMQ, Redis, SQL Server, Docker</p>
-        <p class="project-desc">B2B webhook platform for 50+ resellers. <strong>1M+ webhooks/day, 99.5% success</strong>, CDC + Outbox pattern for zero data loss.</p>
+        <p class="project-meta">Personal · B2B · .NET 8 · 2023–2024</p>
+        <p class="project-desc">Event-driven webhook platform syncing inventory across 50+ B2B resellers.</p>
+
+        <div class="project-detail">
+          <h4><i class="fa-solid fa-hammer"></i> What I Built</h4>
+          <ul>
+            <li>CDC + Outbox pattern for zero data loss across distributed systems</li>
+            <li>RabbitMQ with exponential backoff + dead-letter queue</li>
+            <li>SignalR WebSockets dashboard for real-time monitoring</li>
+          </ul>
+        </div>
+
+        <div class="project-results">
+          <h4><i class="fa-solid fa-chart-line"></i> Key Results</h4>
+          <div class="result-badges">
+            <span class="result-badge"><strong>1M+</strong> webhooks/day</span>
+            <span class="result-badge"><strong>99.5%</strong> success</span>
+          </div>
+        </div>
+
         <div class="project-tags">
           <span>.NET 8</span><span>RabbitMQ</span><span>SignalR</span><span>Redis</span>
         </div>
+
+        <button class="project-view-btn" data-open-modal="modal-inventory">
+          View Details <i class="fa-solid fa-arrow-right"></i>
+        </button>
       </article>
 
-      <!-- Agent Hub -->
-      <article class="project-card reveal" data-categories="ai fullstack">
+      <!-- ============ 4. Agent Hub (Private) ============ -->
+      <article class="project-card reveal" data-categories="ai fullstack" data-project="modal-agent">
         <div class="project-card-header">
           <div class="project-icon"><i class="fa-solid fa-robot"></i></div>
           <div class="project-links">
-            <a href="https://github.com/labiti/agent-hub" target="_blank" rel="noopener" aria-label="View on GitHub"><i class="fa-brands fa-github"></i></a>
-            <a href="#" target="_blank" rel="noopener" aria-label="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="#" class="project-demo-link" data-demo-url="" aria-label="Live demo" title="Demo coming soon" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <span class="project-private-pill" title="Private personal project — contact me for a walkthrough">
+              <i class="fa-solid fa-lock"></i> <span>Private</span>
+            </span>
           </div>
         </div>
         <h3>Agent Hub — Multi-Agent AI</h3>
-        <p class="project-meta">FastAPI (Python), React, Docker, OpenAI &amp; Claude APIs</p>
-        <p class="project-desc"><strong>9 specialised AI microservices</strong> with auto-detection routing. Handles complex workflows like "research → generate image → email".</p>
+        <p class="project-meta">Personal · Agentic AI · 2024–Present</p>
+        <p class="project-desc">9 specialised AI microservices operating as autonomous agents with intelligent routing.</p>
+
+        <div class="project-detail">
+          <h4><i class="fa-solid fa-hammer"></i> What I Built</h4>
+          <ul>
+            <li>Nine autonomous agents covering file ops, research, images, voice, and more</li>
+            <li>FastAPI backend + React frontend with intent-based auto-routing</li>
+            <li>Containerised microservices with centralised monitoring</li>
+          </ul>
+        </div>
+
+        <div class="project-results">
+          <h4><i class="fa-solid fa-chart-line"></i> Key Results</h4>
+          <div class="result-badges">
+            <span class="result-badge"><strong>9</strong> microservices</span>
+            <span class="result-badge">Auto-routing</span>
+          </div>
+        </div>
+
         <div class="project-tags">
           <span>FastAPI</span><span>React</span><span>OpenAI</span><span>Docker</span>
         </div>
+
+        <button class="project-view-btn" data-open-modal="modal-agent">
+          View Details <i class="fa-solid fa-arrow-right"></i>
+        </button>
       </article>
 
-      <!-- BioClock -->
-      <article class="project-card reveal" data-categories="ai fullstack cloud">
+      <!-- ============ 5. BioClock ============ -->
+      <article class="project-card reveal" data-categories="ai fullstack cloud" data-project="modal-bioclock">
         <div class="project-card-header">
           <div class="project-icon"><i class="fa-solid fa-user-check"></i></div>
           <div class="project-links">
-            <a href="https://github.com/Labiti/bioclock" target="_blank" rel="noopener" aria-label="View on GitHub"><i class="fa-brands fa-github"></i></a>
-            <a href="#" target="_blank" rel="noopener" aria-label="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="https://github.com/Labiti/bioclock" target="_blank" rel="noopener" aria-label="View on GitHub" title="Source code" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="project-demo-link" data-demo-url="" aria-label="Live demo" title="Demo coming soon" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
           </div>
         </div>
         <h3>BioClock — Biometric Time Tracking</h3>
-        <p class="project-meta">FastAPI, React, Facenet-PyTorch, PostgreSQL, Docker, JWT, RBAC</p>
-        <p class="project-desc">Face-recognition attendance system (<strong>93% accuracy</strong>), <strong>80+ API endpoints</strong>, 6 roles. Eliminated buddy-punching, <strong>70% fewer payroll errors</strong>.</p>
-        <div class="project-tags">
-          <span>FastAPI</span><span>PyTorch</span><span>Postgres</span>
+        <p class="project-meta">Personal · Biometrics · 2023–2024</p>
+        <p class="project-desc">Face-recognition attendance system for manufacturing environments.</p>
+
+        <div class="project-detail">
+          <h4><i class="fa-solid fa-hammer"></i> What I Built</h4>
+          <ul>
+            <li>Facenet-PyTorch face recognition with real-time camera integration</li>
+            <li>80+ REST API endpoints with RBAC across 6 roles</li>
+            <li>Payroll export + AI-powered absence predictions</li>
+          </ul>
         </div>
+
+        <div class="project-results">
+          <h4><i class="fa-solid fa-chart-line"></i> Key Results</h4>
+          <div class="result-badges">
+            <span class="result-badge"><strong>93%</strong> accuracy</span>
+            <span class="result-badge"><strong>70%</strong> fewer errors</span>
+          </div>
+        </div>
+
+        <div class="project-tags">
+          <span>FastAPI</span><span>React</span><span>PyTorch</span><span>Postgres</span>
+        </div>
+
+        <button class="project-view-btn" data-open-modal="modal-bioclock">
+          View Details <i class="fa-solid fa-arrow-right"></i>
+        </button>
       </article>
 
-      <!-- Fleet Management -->
-      <article class="project-card reveal" data-categories="fullstack">
+      <!-- ============ 6. Fleet Management ============ -->
+      <article class="project-card reveal" data-categories="fullstack" data-project="modal-fleet">
         <div class="project-card-header">
           <div class="project-icon"><i class="fa-solid fa-car"></i></div>
           <div class="project-links">
-            <a href="https://github.com/Labiti/car-management-system" target="_blank" rel="noopener" aria-label="View on GitHub"><i class="fa-brands fa-github"></i></a>
-            <a href="#" target="_blank" rel="noopener" aria-label="Live demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <a href="https://github.com/Labiti/car-management-system" target="_blank" rel="noopener" aria-label="View on GitHub" title="Source code" onclick="event.stopPropagation()"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="project-demo-link" data-demo-url="" aria-label="Live demo" title="Demo coming soon" onclick="event.stopPropagation()"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
           </div>
         </div>
         <h3>Fleet Management System</h3>
-        <p class="project-meta">React, Django REST API, Bootstrap, JWT</p>
-        <p class="project-desc">Full-stack fleet app with RBAC, real-time car status, trip check-in/out, maintenance scheduling, late-fee automation, and analytics dashboards.</p>
-        <div class="project-tags">
-          <span>React</span><span>Django</span><span>JWT</span>
+        <p class="project-meta">Personal · Enterprise · 2023</p>
+        <p class="project-desc">Full-stack fleet app with vehicle tracking, bookings, maintenance, and analytics.</p>
+
+        <div class="project-detail">
+          <h4><i class="fa-solid fa-hammer"></i> What I Built</h4>
+          <ul>
+            <li>RBAC across 4 roles with JWT authentication</li>
+            <li>Real-time car status, trip check-in/out, odometer + fuel monitoring</li>
+            <li>Automated late-fee calculation + analytics dashboards</li>
+          </ul>
         </div>
+
+        <div class="project-results">
+          <h4><i class="fa-solid fa-chart-line"></i> Key Results</h4>
+          <div class="result-badges">
+            <span class="result-badge">Full RBAC</span>
+            <span class="result-badge">Real-time tracking</span>
+          </div>
+        </div>
+
+        <div class="project-tags">
+          <span>React</span><span>Django REST</span><span>JWT</span>
+        </div>
+
+        <button class="project-view-btn" data-open-modal="modal-fleet">
+          View Details <i class="fa-solid fa-arrow-right"></i>
+        </button>
       </article>
+
     </div>
 
     <p class="filter-empty" id="filterEmpty" hidden data-i18n="proj.noResults">No projects match this filter.</p>
@@ -688,7 +821,7 @@
         </a>
       </div>
 
-      <form class="contact-form reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <form class="contact-form reveal" action="https://formspree.io/f/xaeqnngd" method="POST">
         <div class="form-row">
           <div class="form-group">
             <label for="name" data-i18n="form.name">Name</label>
@@ -738,6 +871,386 @@
     </div>
   </div>
 </footer>
+
+<!-- ============================================================
+     PROJECT MODALS
+     ============================================================ -->
+
+<!-- Modal: IP Management System -->
+<div class="modal" id="modal-ip" role="dialog" aria-modal="true" aria-labelledby="modal-ip-title" hidden>
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-dialog" role="document">
+    <button class="modal-close" aria-label="Close" data-close-modal><i class="fa-solid fa-xmark"></i></button>
+
+    <div class="modal-header">
+      <div class="modal-icon"><i class="fa-solid fa-fingerprint"></i></div>
+      <div>
+        <h2 class="modal-title" id="modal-ip-title">IP Management System</h2>
+        <p class="modal-subtitle">ARMSCOR · C# .NET, Angular, SQL Server, Azure Cognitive Services, AKS</p>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-circle-info"></i> Overview</h3>
+        <p>Engineered a full-stack intellectual property management solution from the ground up to automate the complete lifecycle of patents and trademarks — including classification, renewal tracking, and compliance reporting. Integrated Azure Cognitive Services for AI-powered document extraction, automatically populating system fields from uploaded PDFs and scanned filings.</p>
+      </div>
+
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-hammer"></i> Key Features</h3>
+        <ul class="modal-list">
+          <li><i class="fa-solid fa-check"></i> Full patent and trademark lifecycle management</li>
+          <li><i class="fa-solid fa-check"></i> AI-powered document extraction (Azure Document Intelligence)</li>
+          <li><i class="fa-solid fa-check"></i> Automated renewal tracking and compliance reporting</li>
+          <li><i class="fa-solid fa-check"></i> Containerised with Docker, deployed to Azure Kubernetes Service</li>
+          <li><i class="fa-solid fa-check"></i> Azure DevOps CI/CD pipeline with automated build, test, and rollout</li>
+          <li><i class="fa-solid fa-check"></i> Real-time asset visibility for stakeholders</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-chart-line"></i> Impact</h3>
+        <div class="result-badges">
+          <span class="result-badge"><strong>70%</strong> reduction in manual data entry</span>
+          <span class="result-badge">Eliminated missed renewal deadlines</span>
+          <span class="result-badge">Improved portfolio accuracy</span>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-layer-group"></i> Tech Stack</h3>
+        <div class="project-tags">
+          <span>C# .NET</span><span>Angular</span><span>SQL Server</span>
+          <span>Azure Cognitive Services</span><span>Docker</span><span>AKS</span><span>Azure DevOps</span>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-private-note">
+          <i class="fa-solid fa-lock"></i>
+          <span><strong>Confidential source code.</strong> This is an ARMSCOR enterprise project — the code is not publicly available. I can walk you through the architecture and key implementation details on request.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <a href="#contact" class="btn btn-primary" data-close-modal data-scroll-to-contact data-prefill-subject="Request: IP Management System Walkthrough">
+        <i class="fa-solid fa-envelope"></i> Request Access
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Vetting & Clearance System -->
+<div class="modal" id="modal-vetting" role="dialog" aria-modal="true" aria-labelledby="modal-vetting-title" hidden>
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-dialog" role="document">
+    <button class="modal-close" aria-label="Close" data-close-modal><i class="fa-solid fa-xmark"></i></button>
+
+    <div class="modal-header">
+      <div class="modal-icon"><i class="fa-solid fa-shield-halved"></i></div>
+      <div>
+        <h2 class="modal-title" id="modal-vetting-title">Vetting &amp; Clearance System</h2>
+        <p class="modal-subtitle">ARMSCOR · C# .NET, Angular, SQL Server, Playwright, Azure Cognitive Services</p>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-circle-info"></i> Overview</h3>
+        <p>Architected and delivered a production-grade security clearance tracking solution that automated verification workflows for personnel and suppliers working on classified projects. The system enforced strict project eligibility rules by dynamically matching security clearance levels to project requirements, preventing unauthorised access at the assignment stage.</p>
+      </div>
+
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-hammer"></i> Key Features</h3>
+        <ul class="modal-list">
+          <li><i class="fa-solid fa-check"></i> Dynamic clearance-level matching to project requirements</li>
+          <li><i class="fa-solid fa-check"></i> Azure Cognitive Services for passport and security-ID verification</li>
+          <li><i class="fa-solid fa-check"></i> Playwright E2E test suite with parallel cross-browser execution</li>
+          <li><i class="fa-solid fa-check"></i> CI/CD pipeline running full test suite on every pull request</li>
+          <li><i class="fa-solid fa-check"></i> Docker-containerised non-production environments</li>
+          <li><i class="fa-solid fa-check"></i> Deployed on Windows Server 2022 IIS</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-chart-line"></i> Impact</h3>
+        <div class="result-badges">
+          <span class="result-badge"><strong>95%</strong> fewer verification errors</span>
+          <span class="result-badge"><strong>80%</strong> less manual verification effort</span>
+          <span class="result-badge"><strong>4h → 15min</strong> regression test time</span>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-layer-group"></i> Tech Stack</h3>
+        <div class="project-tags">
+          <span>C# .NET</span><span>Angular</span><span>SQL Server</span>
+          <span>Playwright</span><span>Azure Cognitive Services</span><span>Docker</span><span>Azure DevOps</span>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-private-note">
+          <i class="fa-solid fa-lock"></i>
+          <span><strong>Confidential source code.</strong> This is an ARMSCOR enterprise project — the code is not publicly available. Contact me for a technical walkthrough.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <a href="#contact" class="btn btn-primary" data-close-modal data-scroll-to-contact data-prefill-subject="Request: Vetting System Walkthrough">
+        <i class="fa-solid fa-envelope"></i> Request Access
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Inventory Sync Hub -->
+<div class="modal" id="modal-inventory" role="dialog" aria-modal="true" aria-labelledby="modal-inventory-title" hidden>
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-dialog" role="document">
+    <button class="modal-close" aria-label="Close" data-close-modal><i class="fa-solid fa-xmark"></i></button>
+
+    <div class="modal-header">
+      <div class="modal-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
+      <div>
+        <h2 class="modal-title" id="modal-inventory-title">Inventory Sync Hub</h2>
+        <p class="modal-subtitle">.NET 8, React, TypeScript, SignalR, RabbitMQ, Redis, SQL Server, Docker</p>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-circle-info"></i> Overview</h3>
+        <p>Built an event-driven webhook platform enabling real-time data synchronisation across 50+ B2B resellers through a unified integration layer. The system processes over 1 million webhooks daily with a 99.5% delivery success rate, guaranteeing zero data loss through the Change Data Capture (CDC) + Outbox pattern.</p>
+      </div>
+
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-hammer"></i> Key Features</h3>
+        <ul class="modal-list">
+          <li><i class="fa-solid fa-check"></i> CDC + Outbox pattern for guaranteed zero data loss</li>
+          <li><i class="fa-solid fa-check"></i> RabbitMQ message queuing with exponential backoff retry</li>
+          <li><i class="fa-solid fa-check"></i> Dead-letter queue system for failed webhook handling</li>
+          <li><i class="fa-solid fa-check"></i> SignalR WebSockets for real-time dashboard updates</li>
+          <li><i class="fa-solid fa-check"></i> Self-service reseller portal with API key management</li>
+          <li><i class="fa-solid fa-check"></i> Subscription configuration and webhook testing tools</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-chart-line"></i> Impact</h3>
+        <div class="result-badges">
+          <span class="result-badge"><strong>1M+</strong> webhooks/day</span>
+          <span class="result-badge"><strong>99.5%</strong> success rate</span>
+          <span class="result-badge"><strong>0</strong> data loss</span>
+          <span class="result-badge">Sub-second latency</span>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-layer-group"></i> Tech Stack</h3>
+        <div class="project-tags">
+          <span>.NET 8</span><span>C#</span><span>React</span><span>TypeScript</span>
+          <span>SignalR</span><span>RabbitMQ</span><span>Redis</span><span>SQL Server</span><span>Docker</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <a href="https://github.com/Labiti/InventorySyncHub" target="_blank" rel="noopener" class="btn btn-ghost">
+        <i class="fa-brands fa-github"></i> View on GitHub
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Agent Hub -->
+<div class="modal" id="modal-agent" role="dialog" aria-modal="true" aria-labelledby="modal-agent-title" hidden>
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-dialog" role="document">
+    <button class="modal-close" aria-label="Close" data-close-modal><i class="fa-solid fa-xmark"></i></button>
+
+    <div class="modal-header">
+      <div class="modal-icon"><i class="fa-solid fa-robot"></i></div>
+      <div>
+        <h2 class="modal-title" id="modal-agent-title">Agent Hub — Multi-Agent AI</h2>
+        <p class="modal-subtitle">FastAPI (Python), React, Docker, OpenAI &amp; Claude APIs</p>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-circle-info"></i> Overview</h3>
+        <p>Designed and built a production-ready personal AI system integrating nine specialised microservices that operate as autonomous agents. Engineered an intelligent auto-detection routing layer that analyses user intent in real time and routes requests to the appropriate agent — a key differentiator from conventional multi-agent tools.</p>
+      </div>
+
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-hammer"></i> Nine Autonomous Agents</h3>
+        <ul class="modal-list">
+          <li><i class="fa-solid fa-check"></i> File operations (read/write/transform)</li>
+          <li><i class="fa-solid fa-check"></i> Third-party API integrations</li>
+          <li><i class="fa-solid fa-check"></i> AI image generation</li>
+          <li><i class="fa-solid fa-check"></i> Web research and summarisation</li>
+          <li><i class="fa-solid fa-check"></i> Conversational memory management</li>
+          <li><i class="fa-solid fa-check"></i> Social media publishing</li>
+          <li><i class="fa-solid fa-check"></i> Calendar and email automation</li>
+          <li><i class="fa-solid fa-check"></i> Performance optimisation</li>
+          <li><i class="fa-solid fa-check"></i> Voice interaction</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-chart-line"></i> Highlights</h3>
+        <div class="result-badges">
+          <span class="result-badge"><strong>9</strong> microservices</span>
+          <span class="result-badge">Auto-detection routing</span>
+          <span class="result-badge">Multi-step workflows</span>
+          <span class="result-badge">Financial workflows</span>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-layer-group"></i> Tech Stack</h3>
+        <div class="project-tags">
+          <span>FastAPI</span><span>Python</span><span>React</span>
+          <span>OpenAI</span><span>Claude API</span><span>Docker</span>
+          <span>REST</span><span>Message Queues</span>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <div class="modal-private-note">
+          <i class="fa-solid fa-lock"></i>
+          <span><strong>Private personal project.</strong> Source code is not publicly available — I can demo the system live or share architecture details on request.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <a href="#contact" class="btn btn-primary" data-close-modal data-scroll-to-contact data-prefill-subject="Request: Agent Hub Walkthrough">
+        <i class="fa-solid fa-envelope"></i> Request Access
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: BioClock -->
+<div class="modal" id="modal-bioclock" role="dialog" aria-modal="true" aria-labelledby="modal-bioclock-title" hidden>
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-dialog" role="document">
+    <button class="modal-close" aria-label="Close" data-close-modal><i class="fa-solid fa-xmark"></i></button>
+
+    <div class="modal-header">
+      <div class="modal-icon"><i class="fa-solid fa-user-check"></i></div>
+      <div>
+        <h2 class="modal-title" id="modal-bioclock-title">BioClock — Biometric Time Tracking</h2>
+        <p class="modal-subtitle">FastAPI, React, Facenet-PyTorch, PostgreSQL, Docker, JWT, RBAC</p>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-circle-info"></i> Overview</h3>
+        <p>Built a production-ready biometric time tracking system for manufacturing environments, replacing manual paper-based attendance with automated face recognition technology. Engineered 80+ RESTful API endpoints with role-based access control supporting 6 distinct user roles.</p>
+      </div>
+
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-hammer"></i> Key Features</h3>
+        <ul class="modal-list">
+          <li><i class="fa-solid fa-check"></i> Facenet-PyTorch face recognition with real-time camera integration</li>
+          <li><i class="fa-solid fa-check"></i> 80+ RESTful API endpoints with RBAC across 6 user roles</li>
+          <li><i class="fa-solid fa-check"></i> Attendance tracking and shift swap requests</li>
+          <li><i class="fa-solid fa-check"></i> Incident reporting with manager notes</li>
+          <li><i class="fa-solid fa-check"></i> Time-off requests and payroll export (CSV/PDF)</li>
+          <li><i class="fa-solid fa-check"></i> AI-powered absence predictions based on attendance patterns</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-chart-line"></i> Impact</h3>
+        <div class="result-badges">
+          <span class="result-badge"><strong>93%</strong> verification accuracy</span>
+          <span class="result-badge"><strong>70%</strong> fewer payroll errors</span>
+          <span class="result-badge">Buddy-punching eliminated</span>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-layer-group"></i> Tech Stack</h3>
+        <div class="project-tags">
+          <span>FastAPI</span><span>React</span><span>Facenet-PyTorch</span>
+          <span>PostgreSQL</span><span>Docker</span><span>JWT</span><span>RBAC</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <a href="https://github.com/Labiti/bioclock" target="_blank" rel="noopener" class="btn btn-ghost">
+        <i class="fa-brands fa-github"></i> View on GitHub
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Fleet Management -->
+<div class="modal" id="modal-fleet" role="dialog" aria-modal="true" aria-labelledby="modal-fleet-title" hidden>
+  <div class="modal-backdrop" data-close-modal></div>
+  <div class="modal-dialog" role="document">
+    <button class="modal-close" aria-label="Close" data-close-modal><i class="fa-solid fa-xmark"></i></button>
+
+    <div class="modal-header">
+      <div class="modal-icon"><i class="fa-solid fa-car"></i></div>
+      <div>
+        <h2 class="modal-title" id="modal-fleet-title">Fleet Management System</h2>
+        <p class="modal-subtitle">React, Django REST API, Bootstrap, JWT</p>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-circle-info"></i> Overview</h3>
+        <p>Developed a full-stack fleet management application enabling companies to manage vehicle fleets, employee bookings, maintenance tracking, and analytics. Implemented role-based access control with JWT authentication and built a responsive glassmorphism UI.</p>
+      </div>
+
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-hammer"></i> Key Features</h3>
+        <ul class="modal-list">
+          <li><i class="fa-solid fa-check"></i> RBAC across 4 roles (Employee, Manager, Fleet Admin, Super Admin)</li>
+          <li><i class="fa-solid fa-check"></i> Real-time car status tracking</li>
+          <li><i class="fa-solid fa-check"></i> Trip check-in/checkout with odometer and fuel monitoring</li>
+          <li><i class="fa-solid fa-check"></i> Maintenance scheduling</li>
+          <li><i class="fa-solid fa-check"></i> Automated late-fee calculation</li>
+          <li><i class="fa-solid fa-check"></i> Interactive dashboards with reporting analytics</li>
+        </ul>
+      </div>
+
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-chart-line"></i> Highlights</h3>
+        <div class="result-badges">
+          <span class="result-badge">Full RBAC</span>
+          <span class="result-badge">Real-time tracking</span>
+          <span class="result-badge">Automated billing</span>
+          <span class="result-badge">Analytics dashboards</span>
+        </div>
+      </div>
+
+      <div class="modal-section">
+        <h3><i class="fa-solid fa-layer-group"></i> Tech Stack</h3>
+        <div class="project-tags">
+          <span>React</span><span>Django REST API</span><span>Python</span>
+          <span>Bootstrap</span><span>JWT</span><span>FullCalendar</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <a href="https://github.com/Labiti/car-management-system" target="_blank" rel="noopener" class="btn btn-ghost">
+        <i class="fa-brands fa-github"></i> View on GitHub
+      </a>
+    </div>
+  </div>
+</div>
 
 <!-- Scripts -->
 <script src="js/modern.js"></script>
