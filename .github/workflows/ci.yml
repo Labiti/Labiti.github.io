@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main, staging]
+  pull_request:
+    branches: [main, staging, Updates]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate HTML
+        uses: anishathalye/proof-html@v2
+        with:
+          directory: .
+          enforce_https: false
+          ignore_url_re: |
+            ^https://github\.com/labiti/ip-management-system
+            ^https://github\.com/labiti/vetting-system
+            ^https://github\.com/labiti/agent-hub
+
+      - name: Check for broken links
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: --no-progress --exclude-mail '**/*.html' '**/*.md'
+          fail: false
