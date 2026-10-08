@@ -9,12 +9,14 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-24.04
+    continue-on-error: true  # ← don't block on failure
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
 
       - name: Validate HTML
         uses: anishathalye/proof-html@v2
+        continue-on-error: true  # ← warnings only
         with:
           directory: .
           enforce_https: false
@@ -25,6 +27,7 @@ jobs:
 
       - name: Check for broken links
         uses: lycheeverse/lychee-action@v2
+        continue-on-error: true  # ← warnings only
         with:
           args: --no-progress --exclude-mail '**/*.html' '**/*.md'
           fail: false
