@@ -1,19 +1,18 @@
-name: Sync main → Updates
+name: Sync main → staging
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
-  sync:
-    runs-on: ubuntu-latest
+  sync-staging:
+    runs-on: ubuntu-24.04
     permissions:
       contents: write
 
     steps:
       - name: Checkout main
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
           ref: main
@@ -23,12 +22,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Push main to Updates
+      - name: Push main to staging
         run: |
-          git checkout -B Updates origin/main
-          git push origin Updates --force
+          git checkout -B staging origin/main
+          git push origin staging --force-with-lease
 
       - name: Summary
         run: |
-          echo "✅ main has been synced to Updates"
-          echo "Commit: ${{ github.sha }}"
+          echo "✅ main synced to staging"
+          echo "Test at your staging URL, then promote to Updates when ready."

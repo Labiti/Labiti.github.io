@@ -1,0 +1,50 @@
+name: Promote staging → Updates (PR)
+
+on:
+  workflow_dispatch:  # ← Manual trigger only — nothing happens automatically
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout staging
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: staging
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Push staging to promote branch
+        run: |
+          git checkout -B promote-to-updates origin/staging
+          git push origin promote-to-updates --force-with-lease
+
+      - name: Create pull request
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr create \
+            --base Updates \
+            --head promote-to-updates \
+            --title "🚀 Promote staging → Updates" \
+            --body "Promoting tested changes from \`staging\` to production.
+
+          ## Before merging
+          - [ ] Tested on staging
+          - [ ] No visible errors
+          - [ ] Happy with the design/content
+
+          ## What happens on merge
+          - Live site updates at https://labiti.github.io
+          - Takes ~30 seconds after merge
+
+          Closes this PR to cancel the deployment." \
+          || echo "PR already exists — update it manually"
