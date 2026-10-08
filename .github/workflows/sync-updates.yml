@@ -1,0 +1,34 @@
+name: Sync main → Updates
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Push main to Updates
+        run: |
+          git checkout -B Updates origin/main
+          git push origin Updates --force
+
+      - name: Summary
+        run: |
+          echo "✅ main has been synced to Updates"
+          echo "Commit: ${{ github.sha }}"
